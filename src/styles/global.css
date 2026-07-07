@@ -104,6 +104,23 @@ a { color: inherit; }
   flex-wrap: wrap;
 }
 .strip .name { color: var(--color-ink); text-decoration: none; }
+.section-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(var(--s-s), 3vw, var(--s-l));
+  flex-wrap: wrap;
+}
+.section-nav a {
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color .15s ease;
+}
+.section-nav a:hover { color: var(--color-accent); }
+
+#hero,
+section[id] {
+  scroll-margin-top: var(--s-l);
+}
 
 /* ============ Hero ============ */
 .hero {

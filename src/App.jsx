@@ -2,12 +2,24 @@ import FadeIn from "./components/FadeIn.jsx";
 import { site, hero, resume, strengths, contact, footer } from "./content.js";
 
 function Header() {
+  const navItems = [
+    { href: "#resume", label: "Résumé" },
+    { href: "#contact", label: "Contact" },
+  ];
+
   return (
     <header className="strip">
       <div className="container strip-inner mono">
-        <a className="name" href="/">
+        <a className="name" href="#hero">
           Jonathan&nbsp;Jraiche
         </a>
+        <nav className="section-nav" aria-label="Section navigation">
+          {navItems.map((item) => (
+            <a key={item.href} href={item.href}>
+              {item.label}
+            </a>
+          ))}
+        </nav>
       </div>
     </header>
   );
@@ -15,8 +27,10 @@ function Header() {
 
 function Hero() {
   return (
-    <div className="container hero">
-      <FadeIn as="h1">{hero.headline}</FadeIn>
+    <div id="hero" className="container hero">
+      <FadeIn as="h1" id="hero-title">
+        {hero.headline}
+      </FadeIn>
       <FadeIn as="p" className="lede">
         {hero.lede}
         <a className="mail-link" href={`mailto:${site.email}`}>
@@ -30,7 +44,7 @@ function Hero() {
 
 function Resume() {
   return (
-    <section aria-labelledby="resume-title">
+    <section id="resume" aria-labelledby="resume-title">
       <div className="container">
         <FadeIn className="section-head">
           <h2 id="resume-title">Résumé</h2>
@@ -60,7 +74,7 @@ function Resume() {
 
 function Contact() {
   return (
-    <section aria-labelledby="contact-title">
+    <section id="contact" aria-labelledby="contact-title">
       <div className="container">
         <FadeIn className="section-head">
           <h2 id="contact-title">Let's talk</h2>
