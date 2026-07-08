@@ -1,5 +1,5 @@
 import FadeIn from "./components/FadeIn.jsx";
-import { site, hero, resume, strengths, contact, footer } from "./content.js";
+import { site, hero, resume, contact } from "./content.js";
 
 function Header() {
   const navItems = [
@@ -62,11 +62,6 @@ function Resume() {
             </FadeIn>
           ))}
         </ul>
-        <FadeIn as="ul" className="tags micro" aria-label="Core strengths">
-          {strengths.map((tag) => (
-            <li key={tag}>{tag}</li>
-          ))}
-        </FadeIn>
       </div>
     </section>
   );
@@ -78,9 +73,6 @@ function Contact() {
       <div className="container">
         <FadeIn className="section-head">
           <h2 id="contact-title">Let's talk</h2>
-        </FadeIn>
-        <FadeIn as="p" className="contact-blurb">
-          {contact.blurb}
         </FadeIn>
         <FadeIn>
           <a className="big-mail" href={`mailto:${site.email}`}>
@@ -109,18 +101,6 @@ function Contact() {
   );
 }
 
-function Footer() {
-  return (
-    <footer>
-      <FadeIn className="container foot-inner micro">
-        <span>{footer.copyright}</span>
-        <span>{footer.type}</span>
-        <span>{footer.note}</span>
-      </FadeIn>
-    </footer>
-  );
-}
-
 export default function App() {
   return (
     <>
@@ -133,7 +113,6 @@ export default function App() {
         <Resume />
         <Contact />
       </main>
-      <Footer />
     </>
   );
 }

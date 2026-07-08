@@ -49,18 +49,7 @@ export const resume = [
   },
 ];
 
-export const strengths = [
-  "Enterprise UX strategy",
-  "Design systems",
-  "Component architecture",
-  "Accessibility, WCAG",
-  "Usability testing",
-  "Research synthesis",
-];
-
 export const contact = {
-  blurb:
-    "Open to senior product design roles and to consulting work where systems thinking is the fit. Email's the fastest way to reach me.",
   links: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/jonathanjraiche/", arrow: "↗", external: true },
     {
@@ -70,10 +59,4 @@ export const contact = {
       external: false,
     },
   ],
-};
-
-export const footer = {
-  copyright: `© ${new Date().getFullYear()} Jonathan Jraiche`,
-  type: "Set in Archivo, Inter, and IBM Plex Mono",
-  note: "Built by hand · No tracking",
 };

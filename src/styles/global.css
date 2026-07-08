@@ -94,6 +94,10 @@ a { color: inherit; }
 /* ============ Header strip ============ */
 .strip {
   border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--color-surface);
 }
 .strip-inner {
   display: flex;
@@ -212,21 +216,6 @@ section { padding-block: var(--s-2xl); }
   max-width: 56ch;
   margin-top: var(--s-xs);
 }
-.tags {
-  list-style: none;
-  padding: 0;
-  margin-top: var(--s-l);
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--s-xs);
-}
-.tags li {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: .4rem .7rem;
-  color: var(--color-ink-soft);
-}
-
 /* Scroll-triggered fade. Hidden state only applies when JS is
    running (html.js); no-JS visitors see everything. */
 .js .fade-item {
@@ -245,7 +234,6 @@ section { padding-block: var(--s-2xl); }
 }
 
 /* ============ Contact ============ */
-.contact-blurb { color: var(--color-ink-soft); max-width: 52ch; margin-bottom: var(--s-l); }
 .big-mail {
   display: inline-block;
   font-family: var(--font-display);
@@ -273,18 +261,6 @@ section { padding-block: var(--s-2xl); }
 }
 .links a:hover { color: var(--color-accent); }
 .links .arrow { font-family: var(--font-mono); }
-
-/* ============ Footer ============ */
-footer {
-  border-top: 1px solid var(--color-border);
-  padding-block: var(--s-m) var(--s-l);
-}
-.foot-inner {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--s-m);
-  flex-wrap: wrap;
-}
 
 @media (max-width: 767px) {
   .resume li { grid-template-columns: 1fr; gap: var(--s-xs); }
