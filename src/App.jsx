@@ -59,7 +59,13 @@ function Resume() {
                 <h3 className="title">
                   {entry.org} <span className="role-tag">{entry.role}</span>
                 </h3>
-                {entry.summary && <p>{entry.summary}</p>}
+                {entry.bullets?.length ? (
+                  <ul className="resume-bullets">
+                    {entry.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                ) : null}
               </div>
             </FadeIn>
           ))}

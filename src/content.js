@@ -19,35 +19,51 @@ export const resume = [
     dates: "Aug 2021 · Present",
     org: "Leidos",
     role: "UX Software Design Engineer",
-    summary:
-      "Design system strategy, research, and high-fidelity prototyping for mission-critical defense enterprise applications, built to strict technical and regulatory constraints.",
+    bullets: [
+      "Led the strategy, architecture, and documentation of a scalable design system for defense enterprise applications, establishing reusable components and interaction standards.",
+      "Defined reusable component libraries, interaction patterns, and governance guidelines to reduce design rework and improve cross-team implementation.",
+      "Designed high-fidelity prototypes and complex workflow solutions for mission-critical tools operating within strict technical and regulatory constraints.",
+      "Directed the complete user research process from study design and stakeholder alignment to execution, analysis, and insight delivery, driving system architecture decisions.",
+      "Applied advanced information architecture and journey mapping techniques to simplify high-density workflows and support long-term product scalability.",
+    ],
   },
   {
     dates: "May 2021 · Aug 2021",
     org: "Landvoice",
     role: "UX/UI Intern",
-    summary:
-      "Redefined design standards and onboarding flows to create cohesive, scalable design systems across products.",
+    bullets: [
+      "Developed onboarding processes and redefined design standards to create cohesive, scalable design systems across products.",
+      "Partnered with product and engineering teams to deliver user-centered solutions ahead of development schedule.",
+      "Contributed to interaction design improvements that increased engagement and improved customer that success rates.",
+    ],
   },
   {
     dates: "May 2020 · Apr 2021",
     org: "Southwest Market",
     role: "Lead Web Designer",
-    summary:
-      "Led design strategy and Shopify implementation for a flagship ecommerce marketplace, informed by cognitive walkthroughs and KPI analysis.",
+    bullets: [
+      "Led design strategy and implementation using Shopify CMS for flagship ecommerce marketplace",
+      "Conducted in-depth user research, including cognitive walkthroughs and KPI analysis, to inform design decisions that enhanced site navigation and user satisfaction.",
+    ],
   },
   {
     dates: "May 2017 · Aug 2017",
     org: "Valeo",
     role: "Comfort & Driving Assistance Co-op",
-    summary:
-      "Prototyped and tested autonomous parking assistance for 2020 to 2023 vehicles with the smart mobility team.",
+    bullets: [
+      "Prototyped and tested autonomous parking aid/braking for 2020-2023 vehicles with smart mobility team",
+      "Presented human-centered design insights to management regarding parking aid development, resulting in an unambiguous collision detection system for end user",
+      "Presented cost analysis for acquisition of testing materials to management decreasing testing costs by 20%",
+    ],
   },
   {
     dates: "2016 · 2021",
     org: "Michigan State University",
     role: "BA, Experience Architecture",
-    summary: null,
+    bullets: [
+      "Major GPA: 3.93",
+      "Dean's List all applicable semesters",
+    ],
   },
 ];
 

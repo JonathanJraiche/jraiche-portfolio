@@ -184,7 +184,7 @@ section { padding-block: var(--s-2xl); }
 
 /* ============ Résumé ============ */
 .resume { list-style: none; padding: 0; }
-.resume li {
+.resume > li {
   display: grid;
   grid-template-columns: 11rem 1fr;
   gap: var(--s-m);
@@ -208,6 +208,17 @@ section { padding-block: var(--s-2xl); }
   letter-spacing: .14em;
   color: var(--color-muted);
   margin-top: .3rem;
+}
+.resume-bullets {
+  color: var(--color-ink-soft);
+  font-size: .9375rem;
+  line-height: 1.55;
+  max-width: 66ch;
+  margin-top: var(--s-xs);
+  padding-left: 1.15rem;
+}
+.resume-bullets li + li {
+  margin-top: .45rem;
 }
 .resume p {
   color: var(--color-ink-soft);
