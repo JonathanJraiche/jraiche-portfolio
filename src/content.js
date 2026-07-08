@@ -9,7 +9,9 @@ export const hero = {
   headline:
     "I'm Jonathan Jraiche, a product designer focused on enterprise software, product strategy, and systems thinking.",
   // The email is rendered as a mailto link after this text.
-  lede: "I design experiences for products that differentiate, clarify, and delight. While most of my recent work is classified and/or proprietary, I am always happy to discuss my process and answer any questions you have. Reach out at ",
+  lede:
+    "I design experiences for products that differentiate, clarify, and delight. While most of my recent work is classified and/or proprietary, I am always happy to discuss my process and answer any questions you have.",
+  contactPrompt: "Reach out at ",
 };
 
 export const resume = [

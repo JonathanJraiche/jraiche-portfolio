@@ -33,6 +33,8 @@ function Hero() {
       </FadeIn>
       <FadeIn as="p" className="lede">
         {hero.lede}
+        <br />
+        {hero.contactPrompt}
         <a className="mail-link" href={`mailto:${site.email}`}>
           {site.email}
         </a>
