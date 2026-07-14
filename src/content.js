@@ -20,11 +20,13 @@ export const resume = [
     org: "Leidos",
     role: "UX Software Design Engineer",
     bullets: [
-      "Led the strategy, architecture, and documentation of a scalable design system for defense enterprise applications, establishing reusable components and interaction standards.",
-      "Defined reusable component libraries, interaction patterns, and governance guidelines to reduce design rework and improve cross-team implementation.",
-      "Designed high-fidelity prototypes and complex workflow solutions for mission-critical tools operating within strict technical and regulatory constraints.",
-      "Directed the complete user research process from study design and stakeholder alignment to execution, analysis, and insight delivery, driving system architecture decisions.",
-      "Applied advanced information architecture and journey mapping techniques to simplify high-density workflows and support long-term product scalability.",
+      "Served as lead product designer across 10+ mission-critical programs for the DoD, NATO, TSA, and CDC, sole designer on the majority, translating complex operator needs into interfaces that shipped across defense, aviation security, and public health.",
+      "Led end-to-end research on a greenfield defense program that surfaced a previously unmapped range of operator roles and workflows; recommendations drove the team's adoption of a micro-frontend architecture that the entire system was built around.",
+      "Redesigned the operator interface on TSA baggage-screening systems used by security agents worldwide, overhauling a screening workflow in active operational use to speed screening and reduce operator errors, validated by operator feedback.",
+      "Built an enterprise design system from the ground up, including component libraries, interaction patterns, design tokens, and governance, adopted by 3+ engineering teams, cutting design-to-dev handoff time and reducing rework tickets.",
+      "Delivered interfaces for demanding operator environments, including ruggedized and sunlight-readable displays, glove operation, and enclosed shelters across form factors from mobile to wall-mounted monitors, meeting customer specifications and earning positive operator feedback.",
+      "Conducted Section 508 / WCAG 2.1 AA accessibility audits using JAWS, Deque axe DevTools, and Acrobat Pro, moving several products from failing to passing compliance.",
+      "Partnered with engineers in Figma Dev Mode to deliver production-ready specs, reducing implementation ambiguity and improving build quality.",
     ],
   },
   {
