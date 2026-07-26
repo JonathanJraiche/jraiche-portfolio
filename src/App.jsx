@@ -50,8 +50,13 @@ function Resume() {
       <div className="container">
         <FadeIn className="section-head">
           <h2 id="resume-title">Résumé</h2>
-          <a className="resume-download mono" href={site.resumePdf} download>
-            Download PDF <span aria-hidden="true">↓</span>
+          <a
+            className="resume-download mono"
+            href={site.resumePdf}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View PDF <span aria-hidden="true">↗</span>
           </a>
         </FadeIn>
         <ul className="resume">

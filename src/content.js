@@ -77,8 +77,8 @@ export const contact = {
     {
       label: "Résumé, PDF",
       href: site.resumePdf,
-      arrow: "↓",
-      external: false,
+      arrow: "↗",
+      external: true,
     },
   ],
 };
