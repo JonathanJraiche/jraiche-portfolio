@@ -181,6 +181,13 @@ section { padding-block: var(--s-2xl); }
   font-size: clamp(1.4rem, 1.2rem + .6vw, 1.6rem);
   letter-spacing: -0.02em;
 }
+.resume-download {
+  margin-left: auto;
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color .15s ease;
+}
+.resume-download:hover { color: var(--color-accent); }
 
 /* ============ Résumé ============ */
 .resume { list-style: none; padding: 0; }
