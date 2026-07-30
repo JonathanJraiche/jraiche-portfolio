@@ -26,8 +26,8 @@ function getObserver() {
 
 /**
  * Scroll-triggered fade. Renders `as` (default div) with the fade-item
- * class; global.css keeps the hidden state gated on html.js and shows
- * everything instantly under prefers-reduced-motion.
+ * class; global.css keeps the hidden state gated on html.js and removes
+ * transform movement under prefers-reduced-motion.
  */
 export default function FadeIn({ as: Tag = "div", className = "", children, ...rest }) {
   const ref = useRef(null);

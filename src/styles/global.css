@@ -42,7 +42,6 @@
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { transition: none !important; animation: none !important; }
 }
 body {
   background: var(--color-surface);
@@ -258,7 +257,11 @@ section { padding-block: var(--s-2xl); }
   transform: none;
 }
 @media (prefers-reduced-motion: reduce) {
-  .js .fade-item { opacity: 1; transform: none; }
+  :focus-visible { animation: none; }
+  .js .fade-item {
+    transform: none;
+    transition: opacity .65s ease var(--stagger, 0s);
+  }
 }
 
 /* ============ Contact ============ */
