@@ -53,10 +53,19 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 a { color: inherit; }
+
+/* Focus ring:
+   0ms   fully visible at 7px
+   150ms settles to its 3px resting offset */
+@keyframes focus-ring-settle {
+  from { outline-offset: 7px; }
+  to { outline-offset: 3px; }
+}
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
   border-radius: var(--radius);
+  animation: focus-ring-settle .15s cubic-bezier(.2, .7, .25, 1);
 }
 ::selection { background: var(--color-accent); color: var(--paper); }
 
