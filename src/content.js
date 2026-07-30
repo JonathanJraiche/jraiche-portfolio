@@ -21,13 +21,15 @@ export const resume = [
     org: "Leidos",
     role: "User Experience Design Engineer",
     bullets: [
-      "Served as the lead, and often sole, product designer across 10+ mission-critical programs for the DoD, NATO, TSA, and CDC, translating complex operator needs into interfaces that shipped across defense, aviation security, and public health.",
-      "Drove the team's adoption of a micro-frontend architecture that the entire system was built around by leading end-to-end research on a greenfield defense program that surfaced a previously unmapped range of operator roles and workflows.",
+      "Served as the lead (and often sole) product designer across 10+ mission-critical programs for the DoD, NATO, TSA, and CDC, translating complex operator needs into interfaces that shipped across defense, aviation security, and public health.",
+      "Drove the team’s adoption of a micro-frontend architecture that the entire system was built around by leading end-to-end research on a greenfield defense program that surfaced a previously unmapped range of operator roles and workflows.",
       "Sped screening and reduced operator errors, as validated by operator feedback, by redesigning the operator interface on TSA baggage-screening systems used by security agents worldwide.",
-      "Reduced design-to-dev handoff time and rework tickets by building an enterprise design system from the ground up, adopted by 3+ engineering teams, including component libraries, interaction patterns, design tokens, and governance.",
-      "Met customer specifications and earned positive operator feedback by delivering interfaces for demanding operator environments, including ruggedized and sunlight-readable displays, glove operation, and enclosed shelters across form factors from mobile to wall-mounted monitors.",
+      "Reduced design-to-dev handoff time and rework tickets by building an enterprise design system from the ground up, adopted by 3+ engineer teams, including component libraries, interaction patterns, design tokens, and governance.",
+      "Met customer specifications and earned positive operator feedback by delivering interfaces for demanding operator environments including ruggedized and sunlight-readable displays, glove operation, and enclosed shelters across form factors from mobile to wall-mounted monitors.",
       "Moved several products from failing to passing compliance by conducting Section 508 / WCAG 2.1 AA accessibility audits using JAWS, Deque axe DevTools, and Acrobat Pro.",
       "Reduced implementation ambiguity and improved build quality by partnering with engineers in Figma Dev Mode to deliver production-ready specs.",
+      "Owned the end-to-end UX for artifact submission, discovery, and AI interaction as the designer of an internal database of thousands of artifacts powered by AI search and chat.",
+      "Improved operator decision-making by designing an AI-enabled interface for a defense application.",
     ],
   },
   {
@@ -46,7 +48,7 @@ export const resume = [
     role: "Lead Web Designer & Site Manager",
     bullets: [
       "Led design strategy and implementation using Shopify CMS for the flagship e-commerce marketplace.",
-      "Enhanced site navigation and user satisfaction by conducting in-depth user research, including cognitive walkthroughs and KPI analysis.",
+      "Enhanced site navigation and user satisfaction by conducting in-depth user research including cognitive walkthroughs and KPI analysis.",
       "Generated $2K in revenue in 3 months as the lead designer and site manager for the e-commerce marketplace.",
     ],
   },

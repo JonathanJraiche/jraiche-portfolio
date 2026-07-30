@@ -12,7 +12,7 @@ function getObserver() {
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
-          entry.target.style.setProperty("--stagger", `${queue++ * 90}ms`);
+          entry.target.style.setProperty("--stagger-index", queue++);
           entry.target.classList.add("is-in");
           observer.unobserve(entry.target);
         });

@@ -35,6 +35,15 @@
   --container: 72rem;
   --gutter: clamp(1.25rem, 5vw, 4rem);
   --radius: 2px;
+
+  /* Motion */
+  --motion-ease-entrance:    cubic-bezier(.22, 1, .36, 1);
+  --motion-ease-exit:        cubic-bezier(.4, 0, 1, 1);
+  --motion-ease-interactive: cubic-bezier(.4, 0, .6, 1);
+
+  --motion-duration-instant: 80ms;
+  --motion-duration-quick:   180ms;
+  --motion-duration-settle:  420ms;
 }
 
 /* ============ Base ============ */
@@ -117,7 +126,7 @@ a { color: inherit; }
 .section-nav a {
   color: var(--color-muted);
   text-decoration: none;
-  transition: color .15s ease;
+  transition: color var(--motion-duration-quick) var(--motion-ease-interactive);
 }
 .section-nav a:hover { color: var(--color-accent); }
 
@@ -157,7 +166,9 @@ h1 {
   text-decoration-thickness: 1px;
   text-decoration-color: color-mix(in srgb, var(--oxblood) 45%, transparent);
   text-underline-offset: 4px;
-  transition: text-decoration-color .15s ease, text-decoration-thickness .15s ease;
+  transition:
+    text-decoration-color var(--motion-duration-quick) var(--motion-ease-interactive),
+    text-decoration-thickness var(--motion-duration-quick) var(--motion-ease-interactive);
   overflow-wrap: anywhere;
 }
 .mail-link:hover {
@@ -185,7 +196,7 @@ section { padding-block: var(--s-2xl); }
   margin-left: auto;
   color: var(--color-muted);
   text-decoration: none;
-  transition: color .15s ease;
+  transition: color var(--motion-duration-quick) var(--motion-ease-interactive);
 }
 .resume-download:hover { color: var(--color-accent); }
 
@@ -238,17 +249,53 @@ section { padding-block: var(--s-2xl); }
    running (html.js); no-JS visitors see everything. */
 .js .fade-item {
   opacity: 0;
-  transform: translateY(16px);
+  transform: translateY(8px);
   transition:
-    opacity .65s ease var(--stagger, 0s),
-    transform .65s cubic-bezier(.2, .7, .25, 1) var(--stagger, 0s);
+    opacity var(--motion-duration-settle) var(--motion-ease-entrance)
+      calc(var(--stagger-index, 0) * var(--motion-duration-instant)),
+    transform var(--motion-duration-settle) var(--motion-ease-entrance)
+      calc(var(--stagger-index, 0) * var(--motion-duration-instant));
 }
 .js .fade-item.is-in {
   opacity: 1;
   transform: none;
 }
+
+/* Dates establish the scan path quickly; the denser row content
+   follows by one instant interval and takes longer to settle. */
+.js .resume > .fade-item {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+.js .resume > .fade-item > .dates,
+.js .resume > .fade-item > .resume-entry-content {
+  opacity: 0;
+}
+.js .resume > .fade-item > .dates {
+  transition: opacity var(--motion-duration-quick) var(--motion-ease-entrance)
+    calc(var(--stagger-index, 0) * var(--motion-duration-instant));
+}
+.js .resume > .fade-item > .resume-entry-content {
+  transform: translateY(8px);
+  transition:
+    opacity var(--motion-duration-settle) var(--motion-ease-entrance)
+      calc((var(--stagger-index, 0) + 1) * var(--motion-duration-instant)),
+    transform var(--motion-duration-settle) var(--motion-ease-entrance)
+      calc((var(--stagger-index, 0) + 1) * var(--motion-duration-instant));
+}
+.js .resume > .fade-item.is-in > .dates,
+.js .resume > .fade-item.is-in > .resume-entry-content {
+  opacity: 1;
+  transform: none;
+}
 @media (prefers-reduced-motion: reduce) {
-  .js .fade-item { opacity: 1; transform: none; }
+  .js .fade-item,
+  .js .resume > .fade-item > .dates,
+  .js .resume > .fade-item > .resume-entry-content {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ============ Contact ============ */
@@ -261,7 +308,9 @@ section { padding-block: var(--s-2xl); }
   text-decoration: none;
   border-bottom: 3px solid var(--color-ink);
   padding-bottom: .1em;
-  transition: color .15s ease, border-color .15s ease;
+  transition:
+    color var(--motion-duration-quick) var(--motion-ease-interactive),
+    border-color var(--motion-duration-quick) var(--motion-ease-interactive);
   overflow-wrap: anywhere;
 }
 .big-mail:hover { color: var(--color-accent); border-color: var(--color-accent); }
@@ -275,7 +324,7 @@ section { padding-block: var(--s-2xl); }
   gap: var(--s-m);
   padding-block: var(--s-s);
   text-decoration: none;
-  transition: color .15s ease;
+  transition: color var(--motion-duration-quick) var(--motion-ease-interactive);
 }
 .links a:hover { color: var(--color-accent); }
 .links .arrow { font-family: var(--font-mono); }

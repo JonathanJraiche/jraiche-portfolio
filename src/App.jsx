@@ -28,10 +28,8 @@ function Header() {
 function Hero() {
   return (
     <div id="hero" className="container hero">
-      <FadeIn as="h1" id="hero-title">
-        {hero.headline}
-      </FadeIn>
-      <FadeIn as="p" className="lede">
+      <h1 id="hero-title">{hero.headline}</h1>
+      <p className="lede">
         {hero.lede}
         <br />
         {hero.contactPrompt}
@@ -39,7 +37,7 @@ function Hero() {
           {site.email}
         </a>
         .
-      </FadeIn>
+      </p>
     </div>
   );
 }
@@ -56,14 +54,14 @@ function Resume() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            View PDF <span aria-hidden="true">↗</span>
+            View PDF
           </a>
         </FadeIn>
         <ul className="resume">
           {resume.map((entry) => (
             <FadeIn as="li" key={`${entry.org}-${entry.dates}`}>
               <span className="dates micro">{entry.dates}</span>
-              <div>
+              <div className="resume-entry-content">
                 <h3 className="title">
                   {entry.org} <span className="role-tag">{entry.role}</span>
                 </h3>
