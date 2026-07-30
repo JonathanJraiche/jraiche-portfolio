@@ -74,6 +74,13 @@ function Resume() {
                     ))}
                   </ul>
                 ) : null}
+                {entry.subentries?.map((subentry) => (
+                  <div className="resume-subentry" key={`${subentry.org}-${subentry.role}`}>
+                    <h3 className="title">
+                      {subentry.org} <span className="role-tag">{subentry.role}</span>
+                    </h3>
+                  </div>
+                ))}
               </div>
             </FadeIn>
           ))}

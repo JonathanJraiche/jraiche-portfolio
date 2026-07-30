@@ -61,14 +61,15 @@ export const resume = [
     ],
   },
   {
-    dates: "Education",
+    dates: "Education & Certifications",
     org: "Michigan State University",
     role: "Bachelor of Arts in Experience Architecture",
-  },
-  {
-    dates: "May 2023",
-    org: "SAFe Scaled Agile Certification",
-    role: "",
+    subentries: [
+      {
+        org: "SAFe Scaled Agile Certification",
+        role: "May 2023",
+      },
+    ],
   },
 ];
 

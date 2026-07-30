@@ -216,6 +216,7 @@ section { padding-block: var(--s-2xl); }
   color: var(--color-muted);
   margin-top: .3rem;
 }
+.resume-subentry { margin-top: var(--s-m); }
 .resume-bullets {
   color: var(--color-ink-soft);
   font-size: .9375rem;
