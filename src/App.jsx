@@ -1,5 +1,101 @@
+import { useEffect, useRef, useState } from "react";
 import FadeIn from "./components/FadeIn.jsx";
 import { site, hero, resume, contact } from "./content.js";
+
+/* ─────────────────────────────────────────────────────────
+ * EMAIL MORPH STORYBOARD
+ *
+ *    0ms   email address begins lifting away character by character
+ *   80ms   confirmation begins settling in character by character
+ * 2200ms   confirmation returns to the email address
+ * ───────────────────────────────────────────────────────── */
+const EMAIL_MORPH = {
+  confirmationDuration: 2200,
+  characterStagger: 16,
+};
+
+function MorphText({ copied }) {
+  const layers = [
+    { text: site.email, state: "address" },
+    { text: site.emailCopied, state: "confirmation" },
+  ];
+
+  return (
+    <span className={`email-morph${copied ? " is-copied" : ""}`} aria-hidden="true">
+      {layers.map((layer) => (
+        <span
+          className={`email-morph-layer email-morph-layer--${layer.state}`}
+          key={layer.state}
+        >
+          {[...layer.text].map((character, index) => (
+            <span
+              className="email-morph-character"
+              key={`${layer.state}-${index}`}
+              style={{ "--character-delay": `${index * EMAIL_MORPH.characterStagger}ms` }}
+            >
+              {character === " " ? "\u00a0" : character}
+            </span>
+          ))}
+        </span>
+      ))}
+    </span>
+  );
+}
+
+function EmailMoment({ className, variant }) {
+  const [stage, setStage] = useState(0);
+  const resetTimer = useRef();
+  const copied = stage >= 1;
+
+  useEffect(
+    () => () => {
+      window.clearTimeout(resetTimer.current);
+    },
+    [],
+  );
+
+  const copyEmail = async () => {
+    if (!navigator.clipboard?.writeText) return;
+
+    try {
+      await navigator.clipboard.writeText(site.email);
+      setStage(1);
+      window.clearTimeout(resetTimer.current);
+      resetTimer.current = window.setTimeout(
+        () => setStage(0),
+        EMAIL_MORPH.confirmationDuration,
+      );
+    } catch {
+      // The mailto link remains the fallback when clipboard access is unavailable.
+    }
+  };
+
+  return (
+    <span className={`email-moment email-moment--${variant}`}>
+      <a
+        className={className}
+        href={`mailto:${site.email}`}
+        onClick={variant === "additive" ? copyEmail : undefined}
+      >
+        <MorphText copied={copied} />
+        <span className="visually-hidden">{site.email}</span>
+      </a>
+      {variant === "split" ? (
+        <button
+          className="email-copy-button mono"
+          type="button"
+          aria-label={site.copyEmailLabel}
+          onClick={copyEmail}
+        >
+          {site.copyEmail}
+        </button>
+      ) : null}
+      <span className="visually-hidden" aria-live="polite" aria-atomic="true">
+        {copied ? site.emailCopied : ""}
+      </span>
+    </span>
+  );
+}
 
 function Header() {
   const navItems = [
@@ -35,9 +131,7 @@ function Hero() {
         {hero.lede}
         <br />
         {hero.contactPrompt}
-        <a className="mail-link" href={`mailto:${site.email}`}>
-          {site.email}
-        </a>
+        <EmailMoment className="mail-link" variant="additive" />
         .
       </FadeIn>
     </div>
@@ -98,9 +192,7 @@ function Contact() {
           <h2 id="contact-title">Let's talk</h2>
         </FadeIn>
         <FadeIn>
-          <a className="big-mail" href={`mailto:${site.email}`}>
-            {site.email}
-          </a>
+          <EmailMoment className="big-mail" variant="split" />
         </FadeIn>
         <FadeIn as="ul" className="links mono">
           {contact.links.map((link) => (

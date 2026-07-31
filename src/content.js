@@ -3,6 +3,9 @@
 export const site = {
   name: "Jonathan Jraiche",
   email: "jraichej@gmail.com",
+  emailCopied: "Email copied",
+  copyEmail: "Copy",
+  copyEmailLabel: "Copy email address",
   resumePdf: "./Jonathan-Jraiche-Resume.pdf",
 };
 

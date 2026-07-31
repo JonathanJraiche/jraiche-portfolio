@@ -53,6 +53,18 @@ body {
 }
 a { color: inherit; }
 
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* Focus ring:
    0ms   fully visible at 7px
    150ms settles to its 3px resting offset */
@@ -158,19 +170,119 @@ h1 {
   max-width: 56ch;
   margin-top: var(--s-l);
 }
+/* Hero email underline storyboard:
+     0ms   muted underline track is visible
+   750ms   mobile accent begins drawing left → right
+  1200ms   mobile accent rests at full width */
+@keyframes hero-email-underline-load {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
 .mail-link {
+  --underline-duration: .45s;
+  --underline-load-delay: .75s;
+
+  position: relative;
+  display: inline-block;
   color: var(--color-accent);
   font-weight: 500;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-decoration-color: color-mix(in srgb, var(--oxblood) 45%, transparent);
-  text-underline-offset: 4px;
-  transition: text-decoration-color .15s ease, text-decoration-thickness .15s ease;
+  text-decoration: none;
   overflow-wrap: anywhere;
 }
-.mail-link:hover {
-  text-decoration-color: var(--color-accent);
-  text-decoration-thickness: 2px;
+.mail-link::before,
+.mail-link::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: .08em;
+  block-size: 1px;
+  transform-origin: left;
+  pointer-events: none;
+}
+.mail-link::before {
+  background: color-mix(in srgb, var(--oxblood) 45%, transparent);
+}
+.mail-link::after {
+  background: var(--color-accent);
+  block-size: 2px;
+  transform: scaleX(0);
+  transition: transform var(--underline-duration) cubic-bezier(.2, .7, .25, 1);
+}
+.mail-link:hover::after,
+.mail-link:focus-visible::after {
+  transform: scaleX(1);
+}
+@media (hover: none), (pointer: coarse) {
+  .mail-link::after {
+    animation:
+      hero-email-underline-load
+      var(--underline-duration)
+      cubic-bezier(.2, .7, .25, 1)
+      var(--underline-load-delay)
+      forwards;
+  }
+}
+
+/* Email copy morph:
+   0ms   address characters lift away
+   80ms  confirmation characters settle in
+   2200ms confirmation returns to the address */
+.email-moment {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .65em;
+}
+.email-moment--additive { display: inline; }
+#contact .email-moment--split {
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+}
+.email-morph {
+  display: inline-grid;
+  white-space: nowrap;
+}
+.email-morph-layer {
+  grid-area: 1 / 1;
+}
+.email-morph-character {
+  display: inline-block;
+  transition:
+    opacity .18s ease var(--character-delay),
+    transform .32s cubic-bezier(.2, .7, .25, 1) var(--character-delay),
+    filter .2s ease var(--character-delay);
+}
+.email-morph-layer--address .email-morph-character {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+.email-morph-layer--confirmation .email-morph-character {
+  opacity: 0;
+  transform: translateY(.45em);
+  filter: blur(2px);
+}
+.email-morph.is-copied .email-morph-layer--address .email-morph-character {
+  opacity: 0;
+  transform: translateY(-.45em);
+  filter: blur(2px);
+}
+.email-morph.is-copied .email-morph-layer--confirmation .email-morph-character {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+.email-copy-button {
+  color: var(--color-accent);
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--oxblood) 35%, transparent);
+  border-radius: var(--radius);
+  padding: .35rem .55rem;
+  cursor: pointer;
+  transition: color .15s ease, border-color .15s ease, background-color .15s ease;
+}
+.email-copy-button:hover {
+  color: var(--paper);
+  border-color: var(--color-accent);
+  background: var(--color-accent);
 }
 
 /* ============ Sections ============ */
@@ -258,9 +370,28 @@ section { padding-block: var(--s-2xl); }
 }
 @media (prefers-reduced-motion: reduce) {
   :focus-visible { animation: none; }
+  .mail-link::after {
+    animation: none;
+    transform: scaleX(1);
+    transition: none;
+  }
   .js .fade-item {
     transform: none;
     transition: opacity .65s ease var(--stagger, 0s);
+  }
+  .email-morph-layer {
+    transition: opacity .18s ease;
+  }
+  .email-morph-layer--address { opacity: 1; }
+  .email-morph-layer--confirmation { opacity: 0; }
+  .email-morph.is-copied .email-morph-layer--address { opacity: 0; }
+  .email-morph.is-copied .email-morph-layer--confirmation { opacity: 1; }
+  .email-morph-character,
+  .email-morph.is-copied .email-morph-character {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
   }
 }
 
