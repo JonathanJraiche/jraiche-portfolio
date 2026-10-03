@@ -20,7 +20,7 @@ export const hero = {
 
 export const resume = [
   {
-    dates: "Aug 2021 · Jul 2026",
+    dates: "Aug 2021 · Present",
     org: "Leidos",
     role: "User Experience Design Engineer",
     bullets: [
