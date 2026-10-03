@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import FadeIn from "./components/FadeIn.jsx";
+import ParticleField from "./components/ParticleField.jsx";
 import { site, hero, resume, contact } from "./content.js";
 
 /* ─────────────────────────────────────────────────────────
@@ -123,17 +124,20 @@ function Header() {
 
 function Hero() {
   return (
-    <div id="hero" className="container hero">
-      <FadeIn as="h1" id="hero-title">
-        {hero.headline}
-      </FadeIn>
-      <FadeIn as="p" className="lede">
-        {hero.lede}
-        <br />
-        {hero.contactPrompt}
-        <EmailMoment className="mail-link" variant="additive" />
-        .
-      </FadeIn>
+    <div id="hero" className="hero">
+      <ParticleField />
+      <div className="container hero-content">
+        <FadeIn as="h1" id="hero-title">
+          {hero.headline}
+        </FadeIn>
+        <FadeIn as="p" className="lede">
+          {hero.lede}
+          <br />
+          {hero.contactPrompt}
+          <EmailMoment className="mail-link" variant="additive" />
+          .
+        </FadeIn>
+      </div>
     </div>
   );
 }

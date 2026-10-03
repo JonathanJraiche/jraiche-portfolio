@@ -148,11 +148,40 @@ section[id] {
 
 /* ============ Hero ============ */
 .hero {
+  position: relative;
+  isolation: isolate;
   min-height: calc(100svh - 49px);
+  overflow: hidden;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  min-height: inherit;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-block: var(--s-2xl);
+}
+.particle-field {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(
+    ellipse 58% 62% at 38% 48%,
+    rgba(0, 0, 0, .22) 0%,
+    rgba(0, 0, 0, .52) 48%,
+    #000 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 58% 62% at 38% 48%,
+    rgba(0, 0, 0, .22) 0%,
+    rgba(0, 0, 0, .52) 48%,
+    #000 100%
+  );
 }
 h1 {
   font-family: var(--font-display);
@@ -369,6 +398,7 @@ section { padding-block: var(--s-2xl); }
   transform: none;
 }
 @media (prefers-reduced-motion: reduce) {
+  .particle-field { display: none; }
   :focus-visible { animation: none; }
   .mail-link::after {
     animation: none;
