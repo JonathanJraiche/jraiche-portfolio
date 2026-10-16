@@ -24,7 +24,7 @@ export const resume = [
     org: "Leidos",
     role: "User Experience Design Engineer",
     bullets: [
-      "Led research across 10+ mission-critical programs for the DoD, NATO, TSA, and CDC, uncovering operator needs that drove system architecture, interface design, and shipped products across defense, aviation security, and public health.",
+      "Led design across 10+ mission-critical programs for the DoD, NATO, TSA, and CDC, uncovering operator needs that drove system architecture, interface design, and shipped products across defense, aviation security, and public health.",
       "Led end-to-end research on a greenfield defense program that surfaced a previously unmapped range of operator roles and workflows, directly driving the team's adoption of a micro-frontend architecture built around those findings.",
       "Identified operator error patterns through research on TSA baggage-screening systems, then validated redesign impact via operator feedback, resulting in faster screening and fewer errors for security agents worldwide.",
       "Conducted field and contextual research into demanding operator environments (ruggedized and sunlight-readable displays, glove operation, enclosed shelters across mobile to wall-mounted form factors), translating constraints into requirements that met customer specs and earned positive operator feedback.",
