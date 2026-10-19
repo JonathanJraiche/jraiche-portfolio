@@ -57,7 +57,7 @@ Each tool got its own tab. It kept every view uncluttered, but only one view was
 
 The console would load a layout for whoever signed in: operator, supervisor, or maintainer. It addressed the persona problem on paper, but it required role-aware sign-in and layout routing the platform did not have, and the result was still a fixed layout per role. Any engineering investment had to pay for itself, and that work bought less than the alternative: moving the console to a micro frontend architecture.
 
-**Figure:** `Explored-RoleLogin.html`, caption: `Fixed layouts per role: right idea, wrong investment.`
+**Figure:** `Explored-RoleLogin.html`, caption: `An early concept with fixed layouts for operators, supervisors, and maintainers.`
 
 ---
 

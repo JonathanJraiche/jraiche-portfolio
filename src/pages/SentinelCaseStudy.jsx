@@ -64,7 +64,7 @@ export default function SentinelCaseStudy() {
     <div className="case-body">
       <Section name="The problem"><Copy text={sections['The problem']} personas /></Section>
       <Section name="My role and the study"><Copy text={sections['My role and the study']} /></Section>
-      <Section name="What I tried first"><Copy text={tried[0]} /><Figure screen="Explored-Tabs" caption="Tabbed views: clean, but one view at a time." /><h3>Fixed layouts by sign-in role</h3><Copy text={tried[1]} /><Figure screen="Explored-RoleLogin" caption="Fixed layouts per role: right idea, wrong investment." /></Section>
+      <Section name="What I tried first"><Copy text={tried[0]} /><Figure screen="Explored-Tabs" caption="Tabbed views: clean, but one view at a time." /><h3>Fixed layouts by sign-in role</h3><Copy text={tried[1]} /><Figure screen="Explored-RoleLogin" caption="An early concept with fixed layouts for operators, supervisors, and maintainers." /></Section>
       <Section name="The decision"><Copy text={sections['The decision']} /></Section>
       <Section name="Try it" wide id="sentinel-builder"><p>Load a layout or start blank, add a few widgets, then move, resize, and save.</p><SentinelPrototype fallback={<div className="case-mobile-sequence">{['Main', 'Hover-Plot', 'Move', 'Populated'].map(screen => <Figure key={screen} screen={screen} />)}</div>} /></Section>
       <Section name="How the builder works" wide><div className="case-walkthrough">{walkthrough.map(([match, screen, caption], index) => <Figure key={screen} screen={screen} caption={<><span className="micro">{String(index + 1).padStart(2, '0')}</span> {caption}</>} />)}</div></Section>
