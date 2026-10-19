@@ -1,0 +1,82 @@
+[
+  {
+    "state": "library",
+    "violations": [],
+    "passes": 17
+  },
+  {
+    "state": "picker",
+    "violations": [],
+    "passes": 22
+  },
+  {
+    "state": "hover-plot",
+    "violations": [],
+    "passes": 22
+  },
+  {
+    "state": "hover-log",
+    "violations": [],
+    "passes": 21
+  },
+  {
+    "state": "placed",
+    "violations": [],
+    "passes": 19
+  },
+  {
+    "state": "move",
+    "violations": [],
+    "passes": 19
+  },
+  {
+    "state": "resize",
+    "violations": [],
+    "passes": 19
+  },
+  {
+    "state": "menu",
+    "violations": [],
+    "passes": 21
+  },
+  {
+    "state": "save",
+    "violations": [],
+    "passes": 20
+  },
+  {
+    "state": "view",
+    "violations": [],
+    "passes": 15
+  },
+  {
+    "state": "maintainer",
+    "violations": [],
+    "passes": 28
+  },
+  {
+    "state": "unknown",
+    "violations": [],
+    "passes": 26
+  },
+  {
+    "state": "discard",
+    "violations": [],
+    "passes": 17
+  },
+  {
+    "state": "settings",
+    "violations": [],
+    "passes": 17
+  },
+  {
+    "state": "rename",
+    "violations": [],
+    "passes": 21
+  },
+  {
+    "state": "undo",
+    "violations": [],
+    "passes": 16
+  }
+]

@@ -1,0 +1,972 @@
+{
+  "_note": "Maintainer diagnostics data. Secondary sensor is selected on load. Backup power shows the unknown state: values render as -- and the trend panel shows 'No data' instead of a chart. Numbers are fictional.",
+  "refreshedAt": "14:07:22Z",
+  "subsystems": [
+    {
+      "id": "SUB-01",
+      "name": "Power",
+      "status": "nominal",
+      "kpis": [
+        {
+          "label": "Bus voltage",
+          "value": "27.9",
+          "unit": "V",
+          "note": "Threshold ≥ 26",
+          "status": "nominal"
+        },
+        {
+          "label": "Temperature",
+          "value": "38.6",
+          "unit": "°C",
+          "note": "Limit 55.0"
+        },
+        {
+          "label": "Uptime",
+          "value": "312:14",
+          "unit": "h:m",
+          "note": "Since restart"
+        },
+        {
+          "label": "Faults · 24h",
+          "value": "0",
+          "unit": "",
+          "note": "0 open"
+        }
+      ],
+      "trend": {
+        "label": "Bus voltage · 6h",
+        "unit": "V",
+        "threshold": 26,
+        "thresholdDirection": "min",
+        "xLabels": [
+          "08:07",
+          "10:07",
+          "12:07",
+          "14:07"
+        ],
+        "points": [
+          27.1,
+          27.5,
+          27.2,
+          27.6,
+          27.2,
+          27.7,
+          27.3,
+          27.7,
+          27.4,
+          27.8,
+          27.4,
+          27.9,
+          27.5,
+          28.0,
+          27.6,
+          28.0,
+          27.7,
+          28.1,
+          27.7,
+          28.2,
+          27.8,
+          28.2,
+          27.9,
+          28.3
+        ]
+      },
+      "components": [
+        {
+          "name": "Main bus",
+          "status": "nominal",
+          "reading": "27.9 V",
+          "lastCheck": "14:07:02Z"
+        },
+        {
+          "name": "Converter A",
+          "status": "nominal",
+          "reading": "12.1 V",
+          "lastCheck": "14:07:02Z"
+        },
+        {
+          "name": "Converter B",
+          "status": "nominal",
+          "reading": "12.0 V",
+          "lastCheck": "14:07:02Z"
+        }
+      ],
+      "faults": [
+        {
+          "severity": "info",
+          "time": "11:15:04",
+          "message": "Self-test passed"
+        }
+      ]
+    },
+    {
+      "id": "SUB-02",
+      "name": "Cooling",
+      "status": "nominal",
+      "kpis": [
+        {
+          "label": "Coolant flow",
+          "value": "14.2",
+          "unit": "L/min",
+          "note": "Threshold ≥ 12",
+          "status": "nominal"
+        },
+        {
+          "label": "Temperature",
+          "value": "38.6",
+          "unit": "°C",
+          "note": "Limit 55.0"
+        },
+        {
+          "label": "Uptime",
+          "value": "312:14",
+          "unit": "h:m",
+          "note": "Since restart"
+        },
+        {
+          "label": "Faults · 24h",
+          "value": "0",
+          "unit": "",
+          "note": "0 open"
+        }
+      ],
+      "trend": {
+        "label": "Coolant flow · 6h",
+        "unit": "L/min",
+        "threshold": 12,
+        "thresholdDirection": "min",
+        "xLabels": [
+          "08:07",
+          "10:07",
+          "12:07",
+          "14:07"
+        ],
+        "points": [
+          13.4,
+          13.8,
+          13.5,
+          13.9,
+          13.5,
+          14.0,
+          13.6,
+          14.0,
+          13.7,
+          14.1,
+          13.7,
+          14.2,
+          13.8,
+          14.3,
+          13.9,
+          14.3,
+          14.0,
+          14.4,
+          14.0,
+          14.5,
+          14.1,
+          14.5,
+          14.2,
+          14.6
+        ]
+      },
+      "components": [
+        {
+          "name": "Pump A",
+          "status": "nominal",
+          "reading": "7.1 L/min",
+          "lastCheck": "14:07:02Z"
+        },
+        {
+          "name": "Pump B",
+          "status": "nominal",
+          "reading": "7.1 L/min",
+          "lastCheck": "14:07:02Z"
+        },
+        {
+          "name": "Heat exchanger",
+          "status": "nominal",
+          "reading": "31.4 °C",
+          "lastCheck": "14:07:02Z"
+        }
+      ],
+      "faults": [
+        {
+          "severity": "info",
+          "time": "11:15:04",
+          "message": "Self-test passed"
+        }
+      ]
+    },
+    {
+      "id": "SUB-03",
+      "name": "Data link",
+      "status": "nominal",
+      "kpis": [
+        {
+          "label": "Link quality",
+          "value": "99.2",
+          "unit": "%",
+          "note": "Threshold ≥ 95",
+          "status": "nominal"
+        },
+        {
+          "label": "Temperature",
+          "value": "38.6",
+          "unit": "°C",
+          "note": "Limit 55.0"
+        },
+        {
+          "label": "Uptime",
+          "value": "312:14",
+          "unit": "h:m",
+          "note": "Since restart"
+        },
+        {
+          "label": "Faults · 24h",
+          "value": "0",
+          "unit": "",
+          "note": "0 open"
+        }
+      ],
+      "trend": {
+        "label": "Link quality · 6h",
+        "unit": "%",
+        "threshold": 95,
+        "thresholdDirection": "min",
+        "xLabels": [
+          "08:07",
+          "10:07",
+          "12:07",
+          "14:07"
+        ],
+        "points": [
+          98.4,
+          98.8,
+          98.5,
+          98.9,
+          98.5,
+          99.0,
+          98.6,
+          99.0,
+          98.7,
+          99.1,
+          98.7,
+          99.2,
+          98.8,
+          99.3,
+          98.9,
+          99.3,
+          99.0,
+          99.4,
+          99.0,
+          99.5,
+          99.1,
+          99.5,
+          99.2,
+          99.6
+        ]
+      },
+      "components": [
+        {
+          "name": "Modem",
+          "status": "nominal",
+          "reading": "99.2 %",
+          "lastCheck": "14:07:02Z"
+        },
+        {
+          "name": "Encryptor",
+          "status": "nominal",
+          "reading": "OK",
+          "lastCheck": "14:07:02Z"
+        },
+        {
+          "name": "Router",
+          "status": "nominal",
+          "reading": "0.2 % loss",
+          "lastCheck": "14:07:02Z"
+        }
+      ],
+      "faults": [
+        {
+          "severity": "info",
+          "time": "11:15:04",
+          "message": "Self-test passed"
+        }
+      ]
+    },
+    {
+      "id": "SUB-04",
+      "name": "Processing",
+      "status": "nominal",
+      "kpis": [
+        {
+          "label": "CPU headroom",
+          "value": "46.0",
+          "unit": "%",
+          "note": "Threshold ≥ 20",
+          "status": "nominal"
+        },
+        {
+          "label": "Temperature",
+          "value": "38.6",
+          "unit": "°C",
+          "note": "Limit 55.0"
+        },
+        {
+          "label": "Uptime",
+          "value": "312:14",
+          "unit": "h:m",
+          "note": "Since restart"
+        },
+        {
+          "label": "Faults · 24h",
+          "value": "0",
+          "unit": "",
+          "note": "0 open"
+        }
+      ],
+      "trend": {
+        "label": "CPU headroom · 6h",
+        "unit": "%",
+        "threshold": 20,
+        "thresholdDirection": "min",
+        "xLabels": [
+          "08:07",
+          "10:07",
+          "12:07",
+          "14:07"
+        ],
+        "points": [
+          45.2,
+          45.6,
+          45.3,
+          45.7,
+          45.3,
+          45.8,
+          45.4,
+          45.8,
+          45.5,
+          45.9,
+          45.5,
+          46.0,
+          45.6,
+          46.1,
+          45.7,
+          46.1,
+          45.8,
+          46.2,
+          45.8,
+          46.3,
+          45.9,
+          46.3,
+          46.0,
+          46.4
+        ]
+      },
+      "components": [
+        {
+          "name": "Node 1",
+          "status": "nominal",
+          "reading": "54 % load",
+          "lastCheck": "14:07:02Z"
+        },
+        {
+          "name": "Node 2",
+          "status": "nominal",
+          "reading": "51 % load",
+          "lastCheck": "14:07:02Z"
+        },
+        {
+          "name": "Node 3",
+          "status": "nominal",
+          "reading": "56 % load",
+          "lastCheck": "14:07:02Z"
+        }
+      ],
+      "faults": [
+        {
+          "severity": "info",
+          "time": "11:15:04",
+          "message": "Self-test passed"
+        }
+      ]
+    },
+    {
+      "id": "SUB-05",
+      "name": "Storage",
+      "status": "caution",
+      "kpis": [
+        {
+          "label": "Volume 2 used",
+          "value": "88.0",
+          "unit": "%",
+          "note": "Caution ≥ 85",
+          "status": "caution"
+        },
+        {
+          "label": "Temperature",
+          "value": "36.1",
+          "unit": "°C",
+          "note": "Limit 55.0"
+        },
+        {
+          "label": "Uptime",
+          "value": "312:14",
+          "unit": "h:m",
+          "note": "Since restart"
+        },
+        {
+          "label": "Faults · 24h",
+          "value": "1",
+          "unit": "",
+          "note": "1 open"
+        }
+      ],
+      "trend": {
+        "label": "Volume 2 used · 6h",
+        "unit": "%",
+        "threshold": 85,
+        "thresholdDirection": "max",
+        "xLabels": [
+          "08:07",
+          "10:07",
+          "12:07",
+          "14:07"
+        ],
+        "points": [
+          81.0,
+          81.6,
+          81.6,
+          82.2,
+          82.2,
+          82.8,
+          82.8,
+          83.4,
+          83.4,
+          84.0,
+          84.0,
+          84.6,
+          84.7,
+          85.3,
+          85.3,
+          85.9,
+          85.9,
+          86.5,
+          86.5,
+          87.1,
+          87.1,
+          87.7,
+          87.7,
+          88.3
+        ]
+      },
+      "components": [
+        {
+          "name": "Volume 1",
+          "status": "nominal",
+          "reading": "61.2 %",
+          "lastCheck": "14:07:02Z"
+        },
+        {
+          "name": "Volume 2",
+          "status": "caution",
+          "reading": "88.0 %",
+          "lastCheck": "14:07:02Z"
+        },
+        {
+          "name": "Controller",
+          "status": "nominal",
+          "reading": "OK",
+          "lastCheck": "14:07:02Z"
+        }
+      ],
+      "faults": [
+        {
+          "severity": "caution",
+          "time": "09:31:47",
+          "message": "Storage volume 2 at 88 %"
+        }
+      ]
+    },
+    {
+      "id": "SUB-06",
+      "name": "Primary sensor",
+      "status": "nominal",
+      "kpis": [
+        {
+          "label": "Return rate",
+          "value": "97.6",
+          "unit": "%",
+          "note": "Threshold ≥ 90",
+          "status": "nominal"
+        },
+        {
+          "label": "Temperature",
+          "value": "38.6",
+          "unit": "°C",
+          "note": "Limit 55.0"
+        },
+        {
+          "label": "Uptime",
+          "value": "312:14",
+          "unit": "h:m",
+          "note": "Since restart"
+        },
+        {
+          "label": "Faults · 24h",
+          "value": "0",
+          "unit": "",
+          "note": "0 open"
+        }
+      ],
+      "trend": {
+        "label": "Return rate · 6h",
+        "unit": "%",
+        "threshold": 90,
+        "thresholdDirection": "min",
+        "xLabels": [
+          "08:07",
+          "10:07",
+          "12:07",
+          "14:07"
+        ],
+        "points": [
+          96.8,
+          97.2,
+          96.9,
+          97.3,
+          96.9,
+          97.4,
+          97.0,
+          97.4,
+          97.1,
+          97.5,
+          97.1,
+          97.6,
+          97.2,
+          97.7,
+          97.3,
+          97.7,
+          97.4,
+          97.8,
+          97.4,
+          97.9,
+          97.5,
+          97.9,
+          97.6,
+          98.0
+        ]
+      },
+      "components": [
+        {
+          "name": "Receiver A",
+          "status": "nominal",
+          "reading": "97.9 %",
+          "lastCheck": "14:07:02Z"
+        },
+        {
+          "name": "Receiver B",
+          "status": "nominal",
+          "reading": "97.3 %",
+          "lastCheck": "14:07:02Z"
+        },
+        {
+          "name": "Signal processor",
+          "status": "nominal",
+          "reading": "39.8 °C",
+          "lastCheck": "14:07:02Z"
+        }
+      ],
+      "faults": [
+        {
+          "severity": "info",
+          "time": "11:15:04",
+          "message": "Self-test passed"
+        }
+      ]
+    },
+    {
+      "id": "SUB-07",
+      "name": "Secondary sensor",
+      "status": "caution",
+      "selectedByDefault": true,
+      "kpis": [
+        {
+          "label": "Return rate",
+          "value": "82.4",
+          "unit": "%",
+          "note": "Threshold ≥ 90",
+          "status": "caution"
+        },
+        {
+          "label": "Temperature",
+          "value": "41.2",
+          "unit": "°C",
+          "note": "Limit 55.0"
+        },
+        {
+          "label": "Uptime",
+          "value": "312:14",
+          "unit": "h:m",
+          "note": "Since restart"
+        },
+        {
+          "label": "Faults · 24h",
+          "value": "3",
+          "unit": "",
+          "note": "2 open"
+        }
+      ],
+      "trend": {
+        "label": "Return rate · 6h",
+        "unit": "%",
+        "threshold": 90,
+        "thresholdDirection": "min",
+        "xLabels": [
+          "08:07",
+          "10:07",
+          "12:07",
+          "14:07"
+        ],
+        "points": [
+          96,
+          95,
+          96,
+          94,
+          95,
+          93,
+          94,
+          92,
+          93,
+          91,
+          92,
+          90,
+          89,
+          88,
+          89,
+          87,
+          86,
+          85,
+          84,
+          85,
+          83,
+          82,
+          83,
+          82
+        ]
+      },
+      "components": [
+        {
+          "name": "Receiver A",
+          "status": "nominal",
+          "reading": "98.1 %",
+          "lastCheck": "14:07:02Z"
+        },
+        {
+          "name": "Receiver B",
+          "status": "caution",
+          "reading": "82.4 %",
+          "lastCheck": "14:07:02Z"
+        },
+        {
+          "name": "Signal processor",
+          "status": "nominal",
+          "reading": "41.2 °C",
+          "lastCheck": "14:06:58Z"
+        },
+        {
+          "name": "Clock reference",
+          "status": "nominal",
+          "reading": "±0.4 µs",
+          "lastCheck": "14:06:55Z"
+        },
+        {
+          "name": "Antenna drive",
+          "status": "nominal",
+          "reading": "12.0 rpm",
+          "lastCheck": "14:06:51Z"
+        },
+        {
+          "name": "Power supply",
+          "status": "nominal",
+          "reading": "27.9 V",
+          "lastCheck": "14:06:49Z"
+        }
+      ],
+      "faults": [
+        {
+          "severity": "caution",
+          "time": "14:02:11",
+          "message": "Receiver B return rate below 85 %"
+        },
+        {
+          "severity": "caution",
+          "time": "12:48:30",
+          "message": "Receiver B return rate below 90 %"
+        },
+        {
+          "severity": "info",
+          "time": "11:15:04",
+          "message": "Self-test passed"
+        },
+        {
+          "severity": "caution",
+          "time": "09:31:47",
+          "message": "Storage volume 2 at 88 %"
+        },
+        {
+          "severity": "info",
+          "time": "08:00:00",
+          "message": "Watch B assumed console"
+        }
+      ]
+    },
+    {
+      "id": "SUB-08",
+      "name": "Recorder",
+      "status": "nominal",
+      "kpis": [
+        {
+          "label": "Write rate",
+          "value": "212",
+          "unit": "MB/s",
+          "note": "Threshold ≥ 150",
+          "status": "nominal"
+        },
+        {
+          "label": "Temperature",
+          "value": "38.6",
+          "unit": "°C",
+          "note": "Limit 55.0"
+        },
+        {
+          "label": "Uptime",
+          "value": "312:14",
+          "unit": "h:m",
+          "note": "Since restart"
+        },
+        {
+          "label": "Faults · 24h",
+          "value": "0",
+          "unit": "",
+          "note": "0 open"
+        }
+      ],
+      "trend": {
+        "label": "Write rate · 6h",
+        "unit": "MB/s",
+        "threshold": 150,
+        "thresholdDirection": "min",
+        "xLabels": [
+          "08:07",
+          "10:07",
+          "12:07",
+          "14:07"
+        ],
+        "points": [
+          211.2,
+          211.6,
+          211.3,
+          211.7,
+          211.3,
+          211.8,
+          211.4,
+          211.8,
+          211.5,
+          211.9,
+          211.5,
+          212.0,
+          211.6,
+          212.1,
+          211.7,
+          212.1,
+          211.8,
+          212.2,
+          211.8,
+          212.3,
+          211.9,
+          212.3,
+          212.0,
+          212.4
+        ]
+      },
+      "components": [
+        {
+          "name": "Writer",
+          "status": "nominal",
+          "reading": "212 MB/s",
+          "lastCheck": "14:07:02Z"
+        },
+        {
+          "name": "Index",
+          "status": "nominal",
+          "reading": "OK",
+          "lastCheck": "14:07:02Z"
+        },
+        {
+          "name": "Checkpoint",
+          "status": "nominal",
+          "reading": "13:58:10Z",
+          "lastCheck": "14:07:02Z"
+        }
+      ],
+      "faults": [
+        {
+          "severity": "info",
+          "time": "11:15:04",
+          "message": "Self-test passed"
+        }
+      ]
+    },
+    {
+      "id": "SUB-09",
+      "name": "Network",
+      "status": "nominal",
+      "kpis": [
+        {
+          "label": "Packet loss",
+          "value": "0.1",
+          "unit": "%",
+          "note": "Threshold ≤ 1",
+          "status": "nominal"
+        },
+        {
+          "label": "Temperature",
+          "value": "38.6",
+          "unit": "°C",
+          "note": "Limit 55.0"
+        },
+        {
+          "label": "Uptime",
+          "value": "312:14",
+          "unit": "h:m",
+          "note": "Since restart"
+        },
+        {
+          "label": "Faults · 24h",
+          "value": "0",
+          "unit": "",
+          "note": "0 open"
+        }
+      ],
+      "trend": {
+        "label": "Packet loss · 6h",
+        "unit": "%",
+        "threshold": 1,
+        "thresholdDirection": "max",
+        "xLabels": [
+          "08:07",
+          "10:07",
+          "12:07",
+          "14:07"
+        ],
+        "points": [
+          -0.7,
+          -0.3,
+          -0.6,
+          -0.2,
+          -0.6,
+          -0.1,
+          -0.5,
+          -0.1,
+          -0.4,
+          0.0,
+          -0.4,
+          0.1,
+          -0.3,
+          0.2,
+          -0.2,
+          0.2,
+          -0.1,
+          0.3,
+          -0.1,
+          0.4,
+          -0.0,
+          0.4,
+          0.1,
+          0.5
+        ]
+      },
+      "components": [
+        {
+          "name": "Switch A",
+          "status": "nominal",
+          "reading": "0.1 %",
+          "lastCheck": "14:07:02Z"
+        },
+        {
+          "name": "Switch B",
+          "status": "nominal",
+          "reading": "0.0 %",
+          "lastCheck": "14:07:02Z"
+        },
+        {
+          "name": "Uplink",
+          "status": "nominal",
+          "reading": "OK",
+          "lastCheck": "14:07:02Z"
+        }
+      ],
+      "faults": [
+        {
+          "severity": "info",
+          "time": "11:15:04",
+          "message": "Self-test passed"
+        }
+      ]
+    },
+    {
+      "id": "SUB-10",
+      "name": "Backup power",
+      "status": "unknown",
+      "kpis": [
+        {
+          "label": "Charge",
+          "value": "--",
+          "unit": "%",
+          "note": "No data since 13:40Z",
+          "status": "unknown"
+        },
+        {
+          "label": "Temperature",
+          "value": "--",
+          "unit": "°C",
+          "note": "No data"
+        },
+        {
+          "label": "Uptime",
+          "value": "--",
+          "unit": "h:m",
+          "note": "No data"
+        },
+        {
+          "label": "Faults · 24h",
+          "value": "--",
+          "unit": "",
+          "note": "No data"
+        }
+      ],
+      "trend": null,
+      "components": [
+        {
+          "name": "Battery bank",
+          "status": "unknown",
+          "reading": "--",
+          "lastCheck": "13:40:12Z"
+        },
+        {
+          "name": "Charger",
+          "status": "unknown",
+          "reading": "--",
+          "lastCheck": "13:40:12Z"
+        }
+      ],
+      "faults": [
+        {
+          "severity": "caution",
+          "time": "13:40:12",
+          "message": "Backup power telemetry lost"
+        }
+      ]
+    }
+  ]
+}

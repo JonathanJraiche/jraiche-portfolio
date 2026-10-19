@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import FadeIn from "./components/FadeIn.jsx";
 import ParticleField from "./components/ParticleField.jsx";
-import { site, hero, resume, contact } from "./content.js";
+import WorkCard from "./components/WorkCard.jsx";
+import { site, hero, work, resume, contact } from "./content.js";
 
 /* ─────────────────────────────────────────────────────────
  * EMAIL MORPH STORYBOARD
@@ -14,6 +15,8 @@ const EMAIL_MORPH = {
   confirmationDuration: 2200,
   characterStagger: 16,
 };
+
+const SentinelCaseStudy = lazy(() => import('./pages/SentinelCaseStudy.jsx'));
 
 function MorphText({ copied }) {
   const layers = [
@@ -100,6 +103,7 @@ function EmailMoment({ className, variant }) {
 
 function Header() {
   const navItems = [
+    { href: "#work", label: "Work" },
     { href: "#resume", label: "Résumé" },
     { href: "#contact", label: "Contact" },
   ];
@@ -139,6 +143,25 @@ function Hero() {
         </FadeIn>
       </div>
     </div>
+  );
+}
+
+function Work() {
+  return (
+    <section id="work" aria-labelledby="work-title">
+      <div className="container">
+        <FadeIn className="section-head">
+          <h2 id="work-title">Work</h2>
+        </FadeIn>
+        <div className="work-list">
+          {work.map((project) => (
+            <FadeIn as="article" key={project.id}>
+              <WorkCard project={project} />
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -221,6 +244,16 @@ function Contact() {
 }
 
 export default function App() {
+  const [hash, setHash] = useState(window.location.hash);
+  useEffect(() => {
+    const update = () => setHash(window.location.hash);
+    window.addEventListener('hashchange', update);
+    return () => window.removeEventListener('hashchange', update);
+  }, []);
+  const caseStudy = hash.startsWith('#/work/sentinel');
+  useEffect(() => {
+    if (!caseStudy && hash) requestAnimationFrame(() => document.getElementById(hash.slice(1))?.scrollIntoView());
+  }, [caseStudy, hash]);
   return (
     <>
       <a className="skip-link" href="#main">
@@ -228,9 +261,12 @@ export default function App() {
       </a>
       <Header />
       <main id="main">
-        <Hero />
-        <Resume />
-        <Contact />
+        {caseStudy ? <Suspense fallback={<p className="container">Loading Sentinel…</p>}><SentinelCaseStudy /></Suspense> : <>
+          <Hero />
+          <Work />
+          <Resume />
+          <Contact />
+        </>}
       </main>
     </>
   );

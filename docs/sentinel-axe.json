@@ -1,0 +1,110 @@
+[
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "layout": {
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "consoles": 2,
+      "fallbackFigures": 0,
+      "portfolioMono": "\"IBM Plex Mono\", monospace",
+      "prototypeMono": "\"Roboto Mono\", ui-monospace, \"SF Mono\", Menlo, monospace",
+      "fontTokenOutside": "",
+      "consoleSizes": [
+        {
+          "width": 1310,
+          "height": 818,
+          "scrollWidth": 1310
+        },
+        {
+          "width": 1310,
+          "height": 818,
+          "scrollWidth": 1310
+        }
+      ],
+      "emDashes": false,
+      "reducedMotionTransitions": false
+    },
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "nodes": 10
+      }
+    ],
+    "passes": 48
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 900
+    },
+    "layout": {
+      "viewport": 1024,
+      "documentWidth": 1024,
+      "consoles": 2,
+      "fallbackFigures": 0,
+      "portfolioMono": "\"IBM Plex Mono\", monospace",
+      "prototypeMono": "\"Roboto Mono\", ui-monospace, \"SF Mono\", Menlo, monospace",
+      "fontTokenOutside": "",
+      "consoleSizes": [
+        {
+          "width": 1022,
+          "height": 638,
+          "scrollWidth": 1022
+        },
+        {
+          "width": 1022,
+          "height": 638,
+          "scrollWidth": 1022
+        }
+      ],
+      "emDashes": false,
+      "reducedMotionTransitions": false
+    },
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "nodes": 9
+      }
+    ],
+    "passes": 48
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "layout": {
+      "viewport": 390,
+      "documentWidth": 390,
+      "consoles": 0,
+      "fallbackFigures": 4,
+      "portfolioMono": "\"IBM Plex Mono\", monospace",
+      "prototypeMono": null,
+      "fontTokenOutside": "",
+      "consoleSizes": [],
+      "emDashes": false,
+      "reducedMotionTransitions": false
+    },
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "nodes": 2
+      }
+    ],
+    "passes": 33
+  }
+]

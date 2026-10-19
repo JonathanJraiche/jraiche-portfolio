@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Configuration library</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Roboto+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#0d131b}
+a{color:#4cc9f0}a:hover{color:#f2f5f8}
+</style>
+</head>
+<body>
+
+<div style="width: 100%; min-height: 900px; display: flex; flex-direction: column; background: #0d131b; color: #f2f5f8; font-family: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;">
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 10px 16px; background: #070b10; border-bottom: 1px solid #1c2632; position: relative; z-index: 4;">
+<div style="display: flex; align-items: center; gap: 12px; flex: 1 1 0; min-width: 260px;">
+<span style="font: 600 13px/16px Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; letter-spacing: 0.6px; color: #f2f5f8;">SENTINEL</span>
+</div>
+<div style="display: flex; align-items: center; gap: 12px;">
+<button type="button" style="display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 16px; border-radius: 4px; font: 500 13px/16px Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; letter-spacing: 0.1px; cursor: pointer; white-space: nowrap; background: #ff6b6b; color: #070b10; border: 1px solid #ff6b6b; padding: 0 24px; letter-spacing: 0.6px;">STOP</button>
+<span style="display: inline-flex; align-items: center; gap: 8px; font: 500 11px/14px Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; letter-spacing: 0.6px; text-transform: uppercase; color: #f2f5f8; white-space: nowrap;"><span aria-hidden="true" style="width: 14px; height: 14px; border-radius: 999px; background: #4ade80; flex: none;"></span>System nominal</span>
+</div>
+<div style="display: flex; align-items: center; justify-content: flex-end; gap: 8px; flex: 1 1 0; min-width: 260px; position: relative;">
+<span style="font: 400 14px/20px 'Roboto Mono', ui-monospace, Menlo, monospace; color: #96a7b8;">14:07:22Z</span>
+<span style="width: 1px; height: 20px; background: #27333f;"></span>
+
+<button type="button" style="display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 16px; border-radius: 4px; font: 500 13px/16px Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; letter-spacing: 0.1px; cursor: pointer; white-space: nowrap; background: #1c2632; color: #f2f5f8; border: 1px solid #27333f; "><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#96a7b8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Add widget</button><button type="button" aria-label="Save configuration" style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0; background: transparent; border: 1px solid transparent; border-radius: 4px; cursor: pointer; "><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#96a7b8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11l3 3v15H5z"></path><path d="M8 3v5h7V3"></path><path d="M8 21v-7h8v7"></path></svg></button>
+<button type="button" aria-label="Console settings" style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0; background: transparent; border: 1px solid transparent; border-radius: 4px; cursor: pointer; "><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#96a7b8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"></path></svg></button>
+
+</div>
+</header>
+<main style="flex: 1; display: flex; flex-direction: column; gap: 32px; width: 100%; max-width: 1280px; margin: 0 auto; padding: 32px 24px 48px; box-sizing: border-box;">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px;">
+<div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 320px;">
+<h1 style="margin: 0; font: 600 20px/28px Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; letter-spacing: -0.2px; color: #f2f5f8;">Configurations</h1>
+</div>
+<a href="Picker.html" style="display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 16px; border-radius: 4px; background: #4cc9f0; color: #070b10; font: 500 13px/16px Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; text-decoration: none;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#070b10" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>New configuration</a>
+</div>
+<section aria-label="Layout library" style="display: flex; flex-direction: column; gap: 12px;">
+<div style="display: flex; align-items: center; gap: 8px;"><span style="font: 500 11px/14px Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; letter-spacing: 0.6px; text-transform: uppercase; color: #96a7b8;">Layout library</span><span style="font: 400 12px/16px 'Roboto Mono', ui-monospace, Menlo, monospace; color: #7a8ea2;">3</span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px;"><a href="Picker.html" style="display: flex; flex-direction: column; text-decoration: none; background: #141c26; border: 1px solid #27333f; border-radius: 8px; min-width: 0;">
+<div aria-hidden="true" style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: repeat(6, 1fr); gap: 4px; height: 128px; padding: 10px; background: #070b10; border-bottom: 1px solid #27333f; border-radius: 8px 8px 0 0;"><span style="grid-column: 1 / span 7; grid-row: 1 / span 4; background: #1c2632; border: 1px solid #27333f; border-radius: 2px;"></span><span style="grid-column: 8 / span 5; grid-row: 1 / span 2; background: #1c2632; border: 1px solid #27333f; border-radius: 2px;"></span><span style="grid-column: 8 / span 5; grid-row: 3 / span 2; background: #1c2632; border: 1px solid #27333f; border-radius: 2px;"></span><span style="grid-column: 1 / span 4; grid-row: 5 / span 2; background: #1c2632; border: 1px solid #27333f; border-radius: 2px;"></span><span style="grid-column: 5 / span 8; grid-row: 5 / span 2; background: #1c2632; border: 1px solid #27333f; border-radius: 2px;"></span></div>
+<span style="display: flex; flex-direction: column; gap: 4px; padding: 12px 14px 14px;">
+<span style="display: flex; align-items: center; gap: 8px;"><span style="font: 600 15px/22px Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; color: #f2f5f8;">Standard watch</span><span style="margin-left: auto;"><span style="font: 500 11px/14px Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; letter-spacing: 0.6px; text-transform: uppercase; color: #7a8ea2;">Operator</span></span></span>
+<span style="font: 400 12px/16px 'Roboto Mono', ui-monospace, Menlo, monospace; color: #7a8ea2;">5 widgets · 12×10</span>
+</span>
+</a><a href="Picker.html" style="display: flex; flex-direction: column; text-decoration: none; background: #141c26; border: 1px solid #27333f; border-radius: 8px; min-width: 0;">
+<div aria-hidden="true" style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: repeat(6, 1fr); gap: 4px; height: 128px; padding: 10px; background: #070b10; border-bottom: 1px solid #27333f; border-radius: 8px 8px 0 0;"><span style="grid-column: 1 / span 4; grid-row: 1 / span 3; background: #1c2632; border: 1px solid #27333f; border-radius: 2px;"></span><span style="grid-column: 5 / span 4; grid-row: 1 / span 3; background: #1c2632; border: 1px solid #27333f; border-radius: 2px;"></span><span style="grid-column: 9 / span 4; grid-row: 1 / span 3; background: #1c2632; border: 1px solid #27333f; border-radius: 2px;"></span><span style="grid-column: 1 / span 6; grid-row: 4 / span 3; background: #1c2632; border: 1px solid #27333f; border-radius: 2px;"></span><span style="grid-column: 7 / span 6; grid-row: 4 / span 3; background: #1c2632; border: 1px solid #27333f; border-radius: 2px;"></span></div>
+<span style="display: flex; flex-direction: column; gap: 4px; padding: 12px 14px 14px;">
+<span style="display: flex; align-items: center; gap: 8px;"><span style="font: 600 15px/22px Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; color: #f2f5f8;">Oversight</span><span style="margin-left: auto;"><span style="font: 500 11px/14px Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; letter-spacing: 0.6px; text-transform: uppercase; color: #7a8ea2;">Supervisor</span></span></span>
+<span style="font: 400 12px/16px 'Roboto Mono', ui-monospace, Menlo, monospace; color: #7a8ea2;">6 widgets · 12×10</span>
+</span>
+</a><a href="Picker.html" style="display: flex; flex-direction: column; text-decoration: none; background: #141c26; border: 1px solid #27333f; border-radius: 8px; min-width: 0;">
+<div aria-hidden="true" style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: repeat(6, 1fr); gap: 4px; height: 128px; padding: 10px; background: #070b10; border-bottom: 1px solid #27333f; border-radius: 8px 8px 0 0;"><span style="grid-column: 1 / span 3; grid-row: 1 / span 6; background: #1c2632; border: 1px solid #27333f; border-radius: 2px;"></span><span style="grid-column: 4 / span 9; grid-row: 1 / span 3; background: #1c2632; border: 1px solid #27333f; border-radius: 2px;"></span><span style="grid-column: 4 / span 5; grid-row: 4 / span 3; background: #1c2632; border: 1px solid #27333f; border-radius: 2px;"></span><span style="grid-column: 9 / span 4; grid-row: 4 / span 3; background: #1c2632; border: 1px solid #27333f; border-radius: 2px;"></span></div>
+<span style="display: flex; flex-direction: column; gap: 4px; padding: 12px 14px 14px;">
+<span style="display: flex; align-items: center; gap: 8px;"><span style="font: 600 15px/22px Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; color: #f2f5f8;">Health detail</span><span style="margin-left: auto;"><span style="font: 500 11px/14px Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; letter-spacing: 0.6px; text-transform: uppercase; color: #7a8ea2;">Maintainer</span></span></span>
+<span style="font: 400 12px/16px 'Roboto Mono', ui-monospace, Menlo, monospace; color: #7a8ea2;">4 widgets · 12×10</span>
+</span>
+</a></div>
+</section>
+<section aria-label="Saved configurations" style="display: flex; flex-direction: column; gap: 12px;">
+<div style="display: flex; align-items: center; gap: 8px;"><span style="font: 500 11px/14px Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; letter-spacing: 0.6px; text-transform: uppercase; color: #96a7b8;">Saved on this console</span><span style="font: 400 12px/16px 'Roboto Mono', ui-monospace, Menlo, monospace; color: #7a8ea2;">2</span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px;"><a href="Picker.html" style="display: flex; flex-direction: column; text-decoration: none; background: #141c26; border: 1px solid #27333f; border-radius: 8px; min-width: 0;">
+<div aria-hidden="true" style="display: flex; align-items: center; justify-content: center; height: 148px; background: #070b10; border-bottom: 1px dashed #37475a; border-radius: 8px 8px 0 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#96a7b8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></div>
+<span style="display: flex; flex-direction: column; gap: 4px; padding: 12px 14px 14px;">
+<span style="display: flex; align-items: center; gap: 8px;"><span style="font: 600 15px/22px Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; color: #f2f5f8;">Blank configuration</span></span>
+
+</span>
+</a><a href="Picker.html" style="display: flex; flex-direction: column; text-decoration: none; background: #141c26; border: 1px solid #27333f; border-radius: 8px; min-width: 0;">
+<div aria-hidden="true" style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: repeat(6, 1fr); gap: 4px; height: 128px; padding: 10px; background: #070b10; border-bottom: 1px solid #27333f; border-radius: 8px 8px 0 0;"><span style="grid-column: 1 / span 6; grid-row: 1 / span 4; background: #1c2632; border: 1px solid #27333f; border-radius: 2px;"></span><span style="grid-column: 7 / span 3; grid-row: 1 / span 3; background: #1c2632; border: 1px solid #27333f; border-radius: 2px;"></span><span style="grid-column: 10 / span 3; grid-row: 1 / span 6; background: #1c2632; border: 1px solid #27333f; border-radius: 2px;"></span><span style="grid-column: 7 / span 3; grid-row: 4 / span 3; background: #1c2632; border: 1px solid #27333f; border-radius: 2px;"></span><span style="grid-column: 1 / span 6; grid-row: 5 / span 2; background: #1c2632; border: 1px solid #27333f; border-radius: 2px;"></span></div>
+<span style="display: flex; flex-direction: column; gap: 4px; padding: 12px 14px 14px;">
+<span style="display: flex; align-items: center; gap: 8px;"><span style="font: 600 15px/22px Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; color: #f2f5f8;">My watch layout</span></span>
+<span style="font: 400 12px/16px 'Roboto Mono', ui-monospace, Menlo, monospace; color: #7a8ea2;">5 widgets · edited 14:02Z</span>
+</span>
+</a><a href="Picker.html" style="display: flex; flex-direction: column; text-decoration: none; background: #141c26; border: 1px solid #27333f; border-radius: 8px; min-width: 0;">
+<div aria-hidden="true" style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: repeat(6, 1fr); gap: 4px; height: 128px; padding: 10px; background: #070b10; border-bottom: 1px solid #27333f; border-radius: 8px 8px 0 0;"><span style="grid-column: 1 / span 8; grid-row: 1 / span 6; background: #1c2632; border: 1px solid #27333f; border-radius: 2px;"></span><span style="grid-column: 9 / span 4; grid-row: 1 / span 3; background: #1c2632; border: 1px solid #27333f; border-radius: 2px;"></span><span style="grid-column: 9 / span 4; grid-row: 4 / span 3; background: #1c2632; border: 1px solid #27333f; border-radius: 2px;"></span></div>
+<span style="display: flex; flex-direction: column; gap: 4px; padding: 12px 14px 14px;">
+<span style="display: flex; align-items: center; gap: 8px;"><span style="font: 600 15px/22px Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; color: #f2f5f8;">Night shift compact</span></span>
+<span style="font: 400 12px/16px 'Roboto Mono', ui-monospace, Menlo, monospace; color: #7a8ea2;">3 widgets · edited 09:41Z</span>
+</span>
+</a></div>
+</section>
+</main>
+</div>
+
+</body>
+</html>

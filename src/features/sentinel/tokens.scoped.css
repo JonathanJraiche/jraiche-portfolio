@@ -1,0 +1,86 @@
+/* Generated from sentinel-handoff/design-system/tokens.css. Run npm run sentinel:prepare. */
+/* Sentinel Operator Console tokens. Night Ops only. Generated from tokens.json. */
+
+.sentinel-scope {
+  /* Primitives: reference through semantic tokens only */
+  --ink-050: #f2f5f8;
+  --ink-300: #96a7b8;
+  --ink-400: #7a8ea2;
+  --ink-600: #37475a;
+  --ink-700: #27333f;
+  --ink-800: #1c2632;
+  --ink-850: #141c26;
+  --ink-900: #0d131b;
+  --ink-950: #070b10;
+  --signal-green-400: #4ade80;
+  --signal-amber-400: #fbbf24;
+  --signal-red-400: #ff6b6b;
+  --signal-cyan-400: #4cc9f0;
+  --signal-violet-400: #b39dff;
+
+  /* Semantic color */
+  --surface-base: var(--ink-900); /* #0d131b */
+  --surface-raised: var(--ink-850); /* #141c26 */
+  --surface-sunken: var(--ink-950); /* #070b10 */
+  --surface-overlay: var(--ink-800); /* #1c2632 */
+  --border-subtle: var(--ink-800); /* #1c2632 */
+  --border-default: var(--ink-700); /* #27333f */
+  --border-strong: var(--ink-600); /* #37475a */
+  --text-primary: var(--ink-050); /* #f2f5f8 */
+  --text-secondary: var(--ink-300); /* #96a7b8 */
+  --text-tertiary: var(--ink-400); /* #7a8ea2 */
+  --text-inverse: var(--ink-950); /* #070b10 */
+  --status-nominal: var(--signal-green-400); /* #4ade80 */
+  --status-caution: var(--signal-amber-400); /* #fbbf24 */
+  --status-critical: var(--signal-red-400); /* #ff6b6b */
+  --status-info: var(--signal-cyan-400); /* #4cc9f0 */
+  --status-unknown: var(--ink-400); /* #7a8ea2 */
+  --status-priority: var(--signal-violet-400); /* #b39dff */
+  --accent-default: var(--signal-cyan-400); /* #4cc9f0 */
+  --focus-ring: var(--signal-cyan-400); /* #4cc9f0 */
+
+  /* Accent tints used by the builder (accent-default at low alpha) */
+  --accent-tint-08: rgba(76, 201, 240, 0.08); /* placement footprint fill */
+  --accent-tint-06: rgba(76, 201, 240, 0.06); /* resize preview fill */
+  --scrim: rgba(7, 11, 16, 0.72); /* dialog backdrop, surface-sunken at 72% */
+
+  /* Type */
+  --font-sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Roboto Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Spacing */
+  --space-025: 2px;
+  --space-050: 4px;
+  --space-100: 8px;
+  --space-150: 12px;
+  --space-200: 16px;
+  --space-300: 24px;
+  --space-400: 32px;
+  --space-600: 48px;
+
+  /* Radius */
+  --radius-none: 0px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-pill: 999px;
+
+  /* Builder grid */
+  --grid-columns: 12;
+  --grid-row-height: 56px;
+  --grid-gap: 12px;
+  --grid-padding: 16px;
+  --grid-dot: var(--ink-600); /* 1px dots, 24px pitch, edit mode only */
+}
+
+/* Type styles */
+.sentinel-scope .display-l { font: 600 30px/38px var(--font-sans); letter-spacing: -0.4px; }
+.sentinel-scope .heading-l { font: 600 20px/28px var(--font-sans); letter-spacing: -0.2px; }
+.sentinel-scope .heading-m { font: 600 15px/22px var(--font-sans); }
+.sentinel-scope .label-m { font: 500 13px/16px var(--font-sans); letter-spacing: 0.1px; }
+.sentinel-scope .label-s { font: 500 11px/14px var(--font-sans); letter-spacing: 0.6px; text-transform: uppercase; }
+.sentinel-scope .body-m { font: 400 14px/20px var(--font-sans); }
+.sentinel-scope .body-s { font: 400 12px/18px var(--font-sans); }
+.sentinel-scope .data-xl { font: 500 28px/32px var(--font-mono); letter-spacing: -0.5px; }
+.sentinel-scope .data-m { font: 400 14px/20px var(--font-mono); }
+.sentinel-scope .data-s { font: 400 12px/16px var(--font-mono); }

@@ -1,0 +1,123 @@
+{
+  "_note": "Widget catalog. Sizes are grid cells on a 12-column grid. Content is a placeholder until the second design pass; render the [NAME CONTENT] label centered in the body.",
+  "categories": [
+    "Plots",
+    "Health",
+    "Scheduler",
+    "Logs"
+  ],
+  "widgets": [
+    {
+      "type": "situation-plot",
+      "name": "Situation Plot",
+      "category": "Plots",
+      "defaultSize": {
+        "w": 6,
+        "h": 6
+      },
+      "minSize": {
+        "w": 4,
+        "h": 4
+      },
+      "icon": "plot"
+    },
+    {
+      "type": "trend-plot",
+      "name": "Trend Plot",
+      "category": "Plots",
+      "defaultSize": {
+        "w": 4,
+        "h": 3
+      },
+      "minSize": {
+        "w": 3,
+        "h": 2
+      },
+      "icon": "trend"
+    },
+    {
+      "type": "system-health",
+      "name": "System Health",
+      "category": "Health",
+      "defaultSize": {
+        "w": 3,
+        "h": 4
+      },
+      "minSize": {
+        "w": 3,
+        "h": 3
+      },
+      "icon": "health"
+    },
+    {
+      "type": "subsystem-detail",
+      "name": "Subsystem Detail",
+      "category": "Health",
+      "defaultSize": {
+        "w": 4,
+        "h": 5
+      },
+      "minSize": {
+        "w": 3,
+        "h": 4
+      },
+      "icon": "detail"
+    },
+    {
+      "type": "task-schedule",
+      "name": "Task Schedule",
+      "category": "Scheduler",
+      "defaultSize": {
+        "w": 4,
+        "h": 4
+      },
+      "minSize": {
+        "w": 3,
+        "h": 3
+      },
+      "icon": "sched"
+    },
+    {
+      "type": "timeline",
+      "name": "Timeline",
+      "category": "Scheduler",
+      "defaultSize": {
+        "w": 8,
+        "h": 2
+      },
+      "minSize": {
+        "w": 6,
+        "h": 2
+      },
+      "icon": "timeline"
+    },
+    {
+      "type": "event-log",
+      "name": "Event Log",
+      "category": "Logs",
+      "defaultSize": {
+        "w": 3,
+        "h": 10
+      },
+      "minSize": {
+        "w": 3,
+        "h": 4
+      },
+      "icon": "log"
+    },
+    {
+      "type": "alert-queue",
+      "name": "Alert Queue",
+      "category": "Logs",
+      "defaultSize": {
+        "w": 4,
+        "h": 3
+      },
+      "minSize": {
+        "w": 3,
+        "h": 2
+      },
+      "icon": "alerts"
+    }
+  ]
+}
