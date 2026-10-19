@@ -22,6 +22,7 @@ if (!['library','view','maintainer','unknown'].includes(kind)) {
     if(kind === 'menu') dispatch({type:'MENU',id:'plot'});
     if(kind === 'save') dispatch({type:'DIALOG',dialog:'save'});
     if(kind === 'discard') dispatch({type:'CANCEL'});
+    if(kind === 'exit') dispatch({type:'EXIT'});
     if(kind === 'settings') dispatch({type:'DIALOG',dialog:{settingsFor:'Situation Plot'}});
     if(kind === 'rename') dispatch({type:'START_RENAME',id:'plot'});
     if(kind === 'undo') dispatch({type:'REMOVE',id:'plot'});

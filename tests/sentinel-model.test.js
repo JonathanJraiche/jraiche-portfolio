@@ -53,6 +53,44 @@ test('cancel requires discard only when changed', () => {
   assert.equal(act(state,'CANCEL').dialog,'discard');
   assert.equal(act(act(state,'CANCEL'),'DISCARD').screen,'library');
 });
+test('closing unchanged consoles returns to the library and preserves saved layouts and diagnostics', () => {
+  const base = fresh();
+  const loaded = act(base, 'LOAD', { config: { ...layouts.saved[0], source: 'saved' } });
+  for (const state of [loaded, act(loaded, 'PICKER'), act(base, 'NEW', { id: 'empty' })]) {
+    const closed = act(state, 'EXIT');
+    assert.equal(closed.screen, 'library');
+    assert.equal(closed.dialog, null);
+    assert.equal(closed.draft, null);
+    assert.deepEqual(closed.saved, base.saved);
+  }
+  let maintainer = act(base, 'SCENARIO', { scenario: 'maintainer' });
+  maintainer = act(maintainer, 'TEST_FINISH', { id: 'SUB-07', time: '18:00:00Z' });
+  const closed = act(maintainer, 'EXIT');
+  assert.equal(closed.scenario, 'build');
+  assert.equal(closed.screen, 'library');
+  assert.deepEqual(closed.maintainer.logs, maintainer.maintainer.logs);
+});
+test('closing a changed console preserves the draft until the user confirms or keeps editing', () => {
+  const base = fresh();
+  const drafts = [
+    act(base, 'NEW', { id: 'new' }),
+    act(act(base, 'LOAD', { config: { ...layouts.saved[0], source: 'saved' } }), 'PICKER'),
+  ];
+  for (const draft of drafts) {
+    const edited = act(draft, 'ADD', { id: 'extra', widgetType: 'system-health' });
+    const pending = act(edited, 'EXIT');
+    assert.equal(pending.dialog, 'exit');
+    assert.equal(pending.picker.open, false);
+    assert.deepEqual(pending.draft, edited.draft);
+    const kept = act(pending, 'DIALOG', { dialog: null });
+    assert.equal(kept.mode, 'edit');
+    assert.deepEqual(kept.draft, edited.draft);
+    const closed = act(pending, 'LIBRARY');
+    assert.equal(closed.screen, 'library');
+    assert.equal(closed.draft, null);
+    assert.deepEqual(closed.saved, base.saved);
+  }
+});
 test('self-test completion is attached to the tested subsystem when selection changes', () => {
   let state = act(fresh(),'TEST_START',{id:'SUB-07'});
   state = act(state,'SUBSYSTEM',{id:'SUB-10'});

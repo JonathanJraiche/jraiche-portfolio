@@ -115,6 +115,13 @@ export function reducer(state, action) {
     }
     case 'CLEAR_TOAST': return { ...state, toast: null };
     case 'DIALOG': return { ...state, menuFor: null, picker: emptyPicker(), dialog: action.dialog };
+    case 'EXIT': {
+      const original = state.config?.widgets || [];
+      if (state.mode === 'edit' && JSON.stringify(widgets) !== JSON.stringify(original)) {
+        return { ...state, picker: emptyPicker(), menuFor: null, dialog: 'exit' };
+      }
+      return reducer(state, { type: 'LIBRARY' });
+    }
     case 'CANCEL': {
       const original = state.config?.widgets || [];
       if (JSON.stringify(widgets) !== JSON.stringify(original)) return { ...state, picker: emptyPicker(), dialog: 'discard' };

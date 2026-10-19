@@ -7,7 +7,7 @@ const browser = await chromium.launch({ channel:'chrome',headless:true });
 const results=[];
 try {
   const context=await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:'reduce'});
-  for(const state of ['library','picker','hover-plot','hover-log','placed','move','resize','menu','save','view','maintainer','unknown','discard','settings','rename','undo']) {
+  for(const state of ['library','picker','hover-plot','hover-log','placed','move','resize','menu','save','view','maintainer','unknown','discard','exit','settings','rename','undo']) {
     const page=await context.newPage();
     await page.goto(`${base}/tests/sentinel-audit.html?state=${state}`);
     await page.locator('.sn-console').waitFor();

@@ -65,6 +65,11 @@
     "passes": 17
   },
   {
+    "state": "exit",
+    "violations": [],
+    "passes": 17
+  },
+  {
     "state": "settings",
     "violations": [],
     "passes": 17

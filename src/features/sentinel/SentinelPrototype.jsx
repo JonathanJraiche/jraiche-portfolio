@@ -36,7 +36,7 @@ export function SentinelConsole({ scenario, resetKey, initialConsoleState, onSce
   const { saved, setSaved } = useContext(SavedContext);
   const [state, dispatch] = useReducer(reducer, null, () => initialConsoleState || initialState(saved, scenario));
   const [gridSettings, setGridSettings] = useState({ columns: 12, rowHeight: 56, gap: 12, padding: 16 });
-  const root = useRef(null); const add = useRef(null); const pickerArea = useRef(null); const content = useRef(null);
+  const root = useRef(null); const add = useRef(null); const closeControl = useRef(null); const pickerArea = useRef(null); const content = useRef(null);
   const [tooltip, setTooltip] = useState(null);
   const pickerId = useId(); const helpId = useId();
   useEffect(() => { if (!initialConsoleState) dispatch({ type: 'SCENARIO', scenario }); }, [scenario, resetKey, initialConsoleState]);
@@ -75,7 +75,21 @@ export function SentinelConsole({ scenario, resetKey, initialConsoleState, onSce
     requestAnimationFrame(() => add.current?.focus());
   };
   const previousScreen = useRef(state.screen);
-  useEffect(() => { if (previousScreen.current !== state.screen) content.current?.scrollTo(0, 0); previousScreen.current = state.screen; }, [state.screen]);
+  useEffect(() => {
+    if (previousScreen.current !== state.screen) {
+      content.current?.scrollTo(0, 0);
+      if (state.screen === 'library') root.current?.querySelector('.sn-library-heading button')?.focus();
+    }
+    previousScreen.current = state.screen;
+  }, [state.screen]);
+  const closeConsole = () => {
+    if (state.screen === 'maintainer') onScenarioChange?.('build');
+    dispatch({ type: 'EXIT' });
+  };
+  const dismissDiscard = () => {
+    dispatch({ type: 'DIALOG', dialog: null });
+    if (state.dialog === 'exit') requestAnimationFrame(() => closeControl.current?.focus());
+  };
   const edit = state.mode === 'edit';
   return <div ref={root} className="sentinel-scope sn-console" data-screen={state.screen} data-mode={state.mode}>
     <div className="sn-console-content" ref={content} inert={state.dialog ? '' : undefined}>
@@ -85,7 +99,7 @@ export function SentinelConsole({ scenario, resetKey, initialConsoleState, onSce
         <div className="sn-topbar-actions" ref={pickerArea}><span className="data-m sn-secondary">14:07:22Z</span><span className="sn-divider" aria-hidden="true" />
           {state.screen !== 'maintainer' && <Button ref={add} icon="plus" aria-expanded={state.picker.open} aria-controls={state.picker.open ? pickerId : undefined} onClick={() => { if (state.picker.open) closePicker(); else dispatch({ type: 'PICKER', id: newId() }); }}>Add widget</Button>}
           <IconButton icon="save" label="Save configuration" disabled={!edit} onClick={() => dispatch({ type: 'DIALOG', dialog: 'save' })} />
-          <span className="sn-tooltip-anchor"><IconButton icon="settings" label="Console settings" onClick={() => setTooltip('settings')} aria-describedby={tooltip === 'settings' ? `${pickerId}-settings-tip` : undefined} />{tooltip === 'settings' && <span className="sn-tooltip body-s" role="tooltip" id={`${pickerId}-settings-tip`}>Not active in this prototype</span>}</span>
+          <IconButton ref={closeControl} icon="close" label="Close console" disabled={state.screen === 'library'} onClick={closeConsole} />
           {state.picker.open && <Picker state={state} dispatch={dispatch} onClose={closePicker} id={pickerId} />}
         </div>
       </header>
@@ -96,7 +110,7 @@ export function SentinelConsole({ scenario, resetKey, initialConsoleState, onSce
     </div>
     {state.toast && edit && <div className="sn-toast"><span className="body-m">{state.toast.text}</span><Button autoFocus variant="ghost" onClick={() => dispatch({ type: 'UNDO' })}>Undo</Button></div>}
     {state.dialog === 'save' && <SaveDialog state={state} dispatch={dispatch} onSave={save} />}
-    {state.dialog === 'discard' && <Dialog title="Discard changes?" onClose={() => dispatch({ type: 'DIALOG', dialog: null })} footer={<><Button onClick={() => dispatch({ type: 'DIALOG', dialog: null })}>Keep editing</Button><Button variant="danger" onClick={() => dispatch({ type: 'DISCARD' })}>Discard</Button></>}></Dialog>}
+    {(state.dialog === 'discard' || state.dialog === 'exit') && <Dialog title="Discard changes?" onClose={dismissDiscard} footer={<><Button onClick={dismissDiscard}>Keep editing</Button><Button variant="danger" onClick={() => dispatch({ type: state.dialog === 'exit' ? 'LIBRARY' : 'DISCARD' })}>Discard</Button></>}></Dialog>}
     {state.dialog?.settingsFor && <Dialog title={`${state.dialog.settingsFor} settings`} onClose={() => dispatch({ type: 'DIALOG', dialog: null })} footer={<Button onClick={() => dispatch({ type: 'DIALOG', dialog: null })}>Close</Button>}><p className="body-m">Settings arrive with widget content.</p></Dialog>}
     <span role="status" aria-live="polite" aria-atomic="true" className="visually-hidden">{state.announcement}</span>
   </div>;

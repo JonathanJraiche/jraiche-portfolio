@@ -60,13 +60,13 @@ Generated figures live in `src/assets/sentinel` and are imported through `figure
 3. **PASS:** Browser walkthrough: create, add three widgets, move, resize, rename, remove, undo, save, reload, and find the saved configuration in the library. Reducer tests also cover persistence, overwriting saved entries, saving library copies, invalid storage, and undo after an intervening placement.
 4. **PASS:** The same browser flow completed with keyboard activation, arrow movement, Shift and arrow resizing, inline rename, Delete, Undo, and Save. Picker focus previews footprints. Dialog focus stays inside; Escape closes the picker or dialog. Moves and resizes announce through a polite live region. Widget DOM order follows row and column order.
 5. **PASS:** Shared placement validation rejects collisions, negative positions, fractional cells, out-of-bounds columns, and dimensions below the catalog minimum. Pointer dragging and resizing were exercised in the browser. A mixed session of 200 widget placements passes without overlap.
-6. **PASS:** Lighthouse desktop and mobile accessibility scores: **100**. Axe reports **zero violations** on the complete page at 1440px, 1024px, and 390px, and in 16 rendered console states, including dialogs, menus, inline rename, Undo, and unknown diagnostics. Reports are saved in this directory. Automated audits do not replace assistive-technology user testing.
+6. **PASS:** Lighthouse desktop and mobile accessibility scores: **100**. Axe reports **zero violations** on the complete page at 1440px, 1024px, and 390px, and in 17 rendered console states, including dialogs, menus, inline rename, Undo, close confirmation, and unknown diagnostics. Reports are saved in this directory. Automated audits do not replace assistive-technology user testing.
 7. **PASS:** No em dashes in rendered UI strings. Both source and rendered-page checks pass. Prose follows the portfolio owner's revisions, and widget content placeholders remain visible.
 
 ## Additional verification
 
 - Production build passes.
-- Nine model tests pass.
+- Eleven model tests pass, including closing unchanged and edited consoles while preserving saved configurations.
 - All 13 static figure headers and 16 live-state headers were reviewed in Chromium, WebKit, and native Firefox after fixing icon viewports and WebKit figure scaling. Chromium and WebKit also pass automated live-icon bounds checks. Native Firefox screenshots were reviewed because the bundled Firefox driver could not create its profile on this macOS version.
 - No horizontal page overflow at 1440px, 1024px, or 390px.
 - Below 1024px, both live consoles are unmounted. The builder shows four fallback figures, and diagnostics shows its fallback figure.
@@ -79,7 +79,7 @@ Generated figures live in `src/assets/sentinel` and are imported through `figure
 - The two explored approaches are figures, not interactive prototype states.
 - Static figures use PNG snapshots at 2x resolution for consistent scaling across browsers. The editable SVG source and embedded fonts are retained for regeneration.
 - A small sticky top bar keeps global controls visible while taller console content scrolls vertically. The console frame retains the desktop 16:10 ratio.
-- Widget bodies and widget settings retain the handoff placeholders. STOP and console settings show the specified inactive tooltip.
+- Widget bodies and widget settings retain the handoff placeholders. STOP shows the specified inactive tooltip. The playground replaces console settings with a Close console X, returning to the library with confirmation for unsaved edits. Keyboard activation, Escape, focus restoration, saved-view closing, and exiting the maintainer scenario were checked in the browser.
 - Move and resize are transient pointer states. The state-audit fixtures check their committed geometry; manual pointer checks cover the live interactions. No automated pixel-diff baseline was generated from the original reference HTML.
 - Backend micro frontends are described by the case-study copy; this is a local clickable prototype with localStorage, as specified.
 - The requested visible widget placeholders are intentional prototype content. The release review below covers the local implementation before publication.
@@ -90,7 +90,7 @@ Generated figures live in `src/assets/sentinel` and are imported through `figure
 | Dimension | Risk | Review result |
 | --- | --- | --- |
 | Security | Low | No release blockers found. React renders copy and user-entered names as text; saved data is validated before loading. The production dependency audit reports zero vulnerabilities. No credentials were found in application code. |
-| Correctness | Low | All nine model tests pass. The production build passes with the same relative base used by GitHub Pages. Existing browser checks cover the builder, persistence, navigation, desktop, mobile, and reduced motion. |
+| Correctness | Low | All eleven model tests pass. The production build passes with the same relative base used by GitHub Pages. Existing browser checks cover the builder, persistence, navigation, desktop, mobile, and reduced motion. |
 | Performance | Low | The case study is loaded on demand. Fonts and figures are self-hosted. Work-card timers have cleanup, and motion respects reduced-motion settings. |
 | Maintainability | Low | Content, state transitions, UI components, tokens, and asset preparation remain separate. The existing React/Vite framework and deployment workflow are retained. |
 

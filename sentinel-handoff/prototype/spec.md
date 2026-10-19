@@ -22,9 +22,9 @@ Matches `Main.html` and every other screen.
 * **Top bar** (`surface-sunken`, 1px bottom `border-subtle`, padding 10px 16px). Three groups that wrap on narrow widths:
   * Left: the word `SENTINEL`, 13px Inter 600, tracking 0.6px, `text-primary`. Nothing else.
   * Center: the **STOP** button (Danger variant, 24px horizontal padding, uppercase) and the system status: a 14px solid `status-nominal` circle followed by `SYSTEM NOMINAL` in `label-s`, `text-primary`. No outline.
-  * Right, aligned end: the clock (`14:07:22Z`, Roboto Mono 14px, `text-secondary`), a 1×20px `border-default` divider, **Add widget** (Secondary, plus icon), a Save icon button, and a Settings icon button.
+  * Right, aligned end: the clock (`14:07:22Z`, Roboto Mono 14px, `text-secondary`), a 1×20px `border-default` divider, **Add widget** (Secondary, plus icon), a Save icon button, and a **Close console** icon button (X). The live playground uses Close console in place of the reference figures' Settings button.
 * **STOP** is inert in the prototype. On click, show a small tooltip anchored to it: `Not active in this prototype`. It never navigates.
-* **Settings** is inert with the same tooltip.
+* **Close console** returns to the configuration library and is disabled when the library is already open. On the Maintainer page, it also switches the scenario to Build a dashboard. Unsaved changes open the existing `Discard changes?` dialog. **Keep editing** or Escape retains the draft and returns focus to Close console. **Discard** returns to the library without changing saved configurations. Focus moves to New configuration when the library opens.
 * The **Save icon button** opens the Save dialog when in edit mode; in view mode it is disabled (40% opacity).
 * **Add widget** from view mode enters edit mode on the current configuration and opens the picker. On the Maintainer page it is hidden.
 
@@ -151,7 +151,7 @@ type ConsoleState = {
   selectedId: string | null;
   menuFor: string | null;
   renamingId: string | null;
-  dialog: null | 'save' | 'discard' | { settingsFor: string };
+  dialog: null | 'save' | 'discard' | 'exit' | { settingsFor: string };
   toast: null | { text: string; undo: Widget };
   saved: Config[];               // persisted to localStorage 'sentinel.savedConfigs'
   maintainer: { selectedId: string; refreshedAt: string };
