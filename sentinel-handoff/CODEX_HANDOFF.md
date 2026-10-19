@@ -26,7 +26,7 @@ Build a case study page in the portfolio for **Sentinel**, a fictional operator 
 1. **Night Ops only.** There is no light theme for the prototype. The prototype keeps its dark palette even if the portfolio page around it is light.
 2. **Scope the styles.** Sentinel tokens apply inside the prototype and the case-study screen figures only. Do not let them leak into the portfolio's global styles.
 3. **No em dashes** anywhere in copy or UI strings. Use the Oxford comma.
-4. **Fictional and clean-room.** Sentinel is not derived from any real program. Do not add realistic military, sensor, or mission language beyond what the data files contain.
+4. **Fictional and sanitized.** Sentinel is not derived from any real program. Do not add realistic military, sensor, or mission language beyond what the data files contain.
 5. **Placeholders stay visible.** Widget bodies show `[WIDGET NAME CONTENT]` until a later content pass. Case-study placeholders like `[TIMELINE]` stay in brackets.
 6. **Real controls.** Every interactive element is a real `button`, `a`, `input`, or `select`. Icon-only buttons get `aria-label`. Dragging always has a keyboard alternative (WCAG 2.2, 2.5.7).
 7. **Fonts.** Inter for interface text, Roboto Mono for every number, ID, and timestamp.

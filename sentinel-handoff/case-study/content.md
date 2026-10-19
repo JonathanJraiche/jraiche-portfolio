@@ -8,7 +8,7 @@ Page structure and draft copy. Write the copy as given; keep every `[BRACKETED]`
 
 **Title:** Sentinel: letting operators build their own console
 
-**One-line summary:** Sentinel is a clean-room, sanitized system built for this case study. It reproduces a real design problem I encountered and my process, not any real program's screens or data.
+**One-line summary:** Sentinel is a sanitized system built for this case study. It reproduces a real design problem I encountered and my process, not any real program's screens or data.
 
 **Meta row:** Role: Lead Designer and Researcher · Timeline: 6 months (3 research, 3 design iteration) · Team: Sole designer with 20+ developers · Tools: Figma
 
