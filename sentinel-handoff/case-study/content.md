@@ -12,8 +12,6 @@ Page structure and draft copy. Write the copy as given; keep every `[BRACKETED]`
 
 **Meta row:** Role: Lead Designer and Researcher · Timeline: 6 months (3 research, 3 design iteration) · Team: Sole designer with 20+ developers · Tools: Figma
 
-**Project summary:** I designed a configurable console to shorten the time from decision to execution. After the design-system handoff, the team implemented **10 to 12 widgets per month**, up from **1 to 3**.
-
 **Hero figure:** `Populated.html` (Configuration in use).
 
 ---
@@ -28,7 +26,7 @@ I led a three-month research study to understand what users needed from the comb
 * **Supervisors** need to see what operators are doing, along with high-level health and status.
 * **Maintainers** need to drill into health and status for very specific information.
 
-A single fixed layout either buried each group's essentials or crowded the screen with things only someone else needed.
+A single fixed layout either buried each group's essentials or crowded the screen with things only another persona needed.
 
 **Figure:** three persona cards in a row, each with the persona name and the one-line need above. Build these with portfolio styling, not Sentinel styling.
 
@@ -85,7 +83,7 @@ In a micro frontend architecture, the interface is split into independently buil
 * **Widgets are the deployable units.** Most widgets were their own micro frontend. A few that shared the same data and always shipped together lived in one micro frontend that exposed several widgets.
 * **New capability without a console release.** A new widget could ship on its own release cadence and appear in the picker without touching the shell.
 * **Failure stays contained.** Each widget loads independently, so a failing widget should not take the console down with it. I designed loading, empty, and error states for individual widgets.
-* **One design system across all of it.** Independently built pieces only feel like one product if they share tokens and components. The Sentinel system is what kept every widget consistent.
+* **A shared design system.** I defined tokens and reusable components so developers could build widgets independently while keeping the console consistent.
 
 ### What we built first
 
@@ -152,7 +150,7 @@ Sentinel runs on a small system built for operator density: neutral ink surfaces
 
 ## Outcome
 
-Stakeholders approved the configurable console approach. After I handed the design system over to developers, the team implemented 10 to 12 widgets per month, up from 1 to 3 per month previously.
+Stakeholders approved the configurable console approach. After the design-system handoff, the team implemented **10 to 12 widgets per month**, up from **1 to 3**.
 
 Feedback from users after testing clickable prototypes indicated that the proposed console would shorten the time from decision to execution, our primary KPI.
 
