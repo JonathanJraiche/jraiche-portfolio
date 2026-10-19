@@ -18,9 +18,12 @@ npm run build
 npm test
 npm run audit:sentinel
 npm run audit:sentinel:states
+npm run audit:sentinel:icons
 ```
 
 The audit commands expect the development server at `http://127.0.0.1:5173` and a local Google Chrome installation. Override `SENTINEL_AUDIT_URL` for the page audit or `SENTINEL_AUDIT_ORIGIN` for the state fixtures. The state-fixture HTML entry is development-only and is absent from `dist`.
+
+The icon audit also requires Playwright's Firefox and WebKit engines (`node node_modules/playwright-core/cli.js install firefox webkit`). It checks all 13 figures and 16 live console states in Chromium, Firefox, and WebKit. If the bundled Firefox cannot start on macOS, it uses `/Applications/Firefox.app` (or `SENTINEL_FIREFOX_PATH`) to capture the same screens for visual review, without claiming automated geometry checks passed. Screenshots are saved to `/tmp/sentinel-icon-audit`, and the report is saved to `docs/sentinel-icons.json`.
 
 ## How style isolation works
 
@@ -37,7 +40,9 @@ To refresh generated styles and figures after editing handoff assets:
 npm run sentinel:prepare
 ```
 
-Figures are self-contained SVG images with XHTML layout and embedded font files. Their content comes from the supplied HTML screens. Layout-library thumbnail positions and counts are replaced from `layouts.json`. The SVG's internal styles are isolated by the image boundary.
+Figures are generated from the supplied HTML screens through self-contained SVG source images, then exported as PNG snapshots at 2x resolution. The export needs a local Google Chrome installation. PNG avoids WebKit's clipping of positioned XHTML inside scaled SVG images. Layout-library thumbnail positions and counts are replaced from `layouts.json`. Styles remain isolated by the image boundary.
+
+Generated figures live in `src/assets/sentinel` and are imported through `figures.js`. Vite gives each PNG a content-based filename, so changes to icons invalidate cached figures on both the case study and the home-page card. The generator restores case-sensitive SVG `viewBox` attributes after parsing HTML to prevent cropped plus, save, and settings icons in the exported snapshots.
 
 ## Components and state
 
@@ -62,6 +67,7 @@ Figures are self-contained SVG images with XHTML layout and embedded font files.
 
 - Production build passes.
 - Nine model tests pass.
+- All 13 static figure headers and 16 live-state headers were reviewed in Chromium, WebKit, and native Firefox after fixing icon viewports and WebKit figure scaling. Chromium and WebKit also pass automated live-icon bounds checks. Native Firefox screenshots were reviewed because the bundled Firefox driver could not create its profile on this macOS version.
 - No horizontal page overflow at 1440px, 1024px, or 390px.
 - Below 1024px, both live consoles are unmounted. The builder shows four fallback figures, and diagnostics shows its fallback figure.
 - Reduced motion produces zero transition durations inside the console.
@@ -71,7 +77,7 @@ Figures are self-contained SVG images with XHTML layout and embedded font files.
 
 - Routing uses the existing React/Vite app and a hash URL for GitHub Pages. No framework migration was made.
 - The two explored approaches are figures, not interactive prototype states.
-- Static figures are generated SVG images rather than raster screenshots. This keeps the supplied HTML layout and embedded fonts self-contained and sharp when scaled.
+- Static figures use PNG snapshots at 2x resolution for consistent scaling across browsers. The editable SVG source and embedded fonts are retained for regeneration.
 - A small sticky top bar keeps global controls visible while taller console content scrolls vertically. The console frame retains the desktop 16:10 ratio.
 - Widget bodies and widget settings retain the handoff placeholders. STOP and console settings show the specified inactive tooltip.
 - Move and resize are transient pointer states. The state-audit fixtures check their committed geometry; manual pointer checks cover the live interactions. No automated pixel-diff baseline was generated from the original reference HTML.

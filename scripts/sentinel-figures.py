@@ -4,6 +4,8 @@ from html.parser import HTMLParser
 from html import escape
 import base64, json, re
 ROOT = Path(__file__).resolve().parents[1]
+OUTPUT = ROOT/'src/assets/sentinel'
+OUTPUT.mkdir(parents=True, exist_ok=True)
 VOID = {'area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr'}
 class Element:
     def __init__(self, tag, attrs=()): self.tag, self.attrs, self.children = tag, dict(attrs), []
@@ -53,5 +55,5 @@ for file in (ROOT/'sentinel-handoff/reference/screens').glob('*.html'):
     children=''.join(serialize(child) for child in body.children)
     css=''.join(fonts)+'*{font-synthesis:none}body{margin:0}a{text-decoration:none}button,input,select{pointer-events:none}'
     svg=f'<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="{height}" viewBox="0 0 1440 {height}"><foreignObject width="1440" height="{height}"><div xmlns="http://www.w3.org/1999/xhtml"><style>{escape(css,quote=False)}</style>{children}</div></foreignObject></svg>'
-    (ROOT/'public/sentinel'/f'{file.stem}.svg').write_text(svg)
+    (OUTPUT/f'{file.stem}.svg').write_text(svg)
 print('Prepared 13 self-contained Sentinel figures.')

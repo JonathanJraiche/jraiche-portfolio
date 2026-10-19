@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import copy from '../../sentinel-handoff/case-study/content.md?raw';
 import SentinelPrototype, { SentinelSavedProvider } from '../features/sentinel/SentinelPrototype.jsx';
 import { Button, Panel, StatusChip } from '../features/sentinel/Controls.jsx';
+import { sentinelFigureUrl } from '../features/sentinel/figures.js';
 import '../styles/sentinel-case-study.css';
 
 const sections = Object.fromEntries(copy.split(/^## /m).slice(1).map(section => { const newline = section.indexOf('\n'); return [section.slice(0, newline), section.slice(newline + 1).trim()]; }));
@@ -33,7 +34,7 @@ const alt = {
   Maintainer: 'Secondary sensor diagnostics with ten subsystems, four metrics, a declining return-rate trend, components, and fault history.',
 };
 export function Figure({ screen, caption, eager = false }) {
-  return <figure className="case-figure"><div className="sentinel-scope case-screen"><img src={`${import.meta.env.BASE_URL}sentinel/${screen}.svg`} width="1440" height={screen === 'Maintainer' ? '1040' : '900'} alt={alt[screen] || screen} loading={eager ? 'eager' : 'lazy'} decoding="async" /></div>{caption && <figcaption>{caption}</figcaption>}</figure>;
+  return <figure className="case-figure"><div className="sentinel-scope case-screen"><img src={sentinelFigureUrl(screen)} width="1440" height={screen === 'Maintainer' ? '1040' : '900'} alt={alt[screen] || screen} loading={eager ? 'eager' : 'lazy'} decoding="async" /></div>{caption && <figcaption>{caption}</figcaption>}</figure>;
 }
 function Section({ name, children, wide = false, id }) {
   return <section className={`case-section${wide ? ' case-section--wide' : ''}`} id={id}><div className="case-section-heading"><h2>{name}</h2></div>{children}</section>;

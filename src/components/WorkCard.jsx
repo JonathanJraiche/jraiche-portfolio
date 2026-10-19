@@ -74,7 +74,7 @@ export default function WorkCard({ project }) {
       <span className="work-card-media">
         <img
           className="work-card-image"
-          src={`${import.meta.env.BASE_URL}${project.image}`}
+          src={project.image}
           alt={project.imageAlt}
           width="1440"
           height="900"

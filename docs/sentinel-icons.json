@@ -1,0 +1,1914 @@
+[
+  {
+    "browser": "chromium",
+    "status": "passed",
+    "version": "155.0.8059.80",
+    "figures": [
+      {
+        "screen": "Explored-RoleLogin",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Explored-Tabs",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Hover-Log",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Hover-Plot",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Main",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Maintainer",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Menu",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Move",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Picker",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Placed",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Populated",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Resize",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Save",
+        "loaded": true,
+        "naturalWidth": 2880
+      }
+    ],
+    "live": [
+      {
+        "state": "library",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "picker",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "hover-plot",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "hover-log",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "placed",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "move",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "resize",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "menu",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "save",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "view",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "maintainer",
+        "icons": [
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "unknown",
+        "icons": [
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "discard",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "settings",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "rename",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "undo",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "browser": "webkit",
+    "status": "passed",
+    "version": "27.2",
+    "figures": [
+      {
+        "screen": "Explored-RoleLogin",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Explored-Tabs",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Hover-Log",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Hover-Plot",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Main",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Maintainer",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Menu",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Move",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Picker",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Placed",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Populated",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Resize",
+        "loaded": true,
+        "naturalWidth": 2880
+      },
+      {
+        "screen": "Save",
+        "loaded": true,
+        "naturalWidth": 2880
+      }
+    ],
+    "live": [
+      {
+        "state": "library",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "picker",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "hover-plot",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "hover-log",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "placed",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "move",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "resize",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "menu",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "save",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "view",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "maintainer",
+        "icons": [
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "unknown",
+        "icons": [
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "discard",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "settings",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "rename",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      },
+      {
+        "state": "undo",
+        "icons": [
+          {
+            "label": "Add widget",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              5,
+              14,
+              14
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Save configuration",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              5,
+              3,
+              14,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          },
+          {
+            "label": "Console settings",
+            "viewport": [
+              0,
+              0,
+              24,
+              24
+            ],
+            "bounds": [
+              3,
+              3,
+              18,
+              18
+            ],
+            "width": 16,
+            "height": 16
+          }
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "browser": "firefox",
+    "status": "screenshots-for-visual-review",
+    "figures": [
+      "Explored-RoleLogin",
+      "Explored-Tabs",
+      "Hover-Log",
+      "Hover-Plot",
+      "Main",
+      "Maintainer",
+      "Menu",
+      "Move",
+      "Picker",
+      "Placed",
+      "Populated",
+      "Resize",
+      "Save"
+    ],
+    "states": [
+      "library",
+      "picker",
+      "hover-plot",
+      "hover-log",
+      "placed",
+      "move",
+      "resize",
+      "menu",
+      "save",
+      "view",
+      "maintainer",
+      "unknown",
+      "discard",
+      "settings",
+      "rename",
+      "undo"
+    ],
+    "automatedDriverUnavailable": true
+  }
+]

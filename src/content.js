@@ -1,4 +1,5 @@
 // Single source of truth for site content. No location anywhere, by design.
+import { sentinelFigureUrl } from './features/sentinel/figures.js';
 
 export const site = {
   name: "Jonathan Jraiche",
@@ -23,7 +24,7 @@ export const work = [
     id: "sentinel",
     title: "Sentinel",
     description: "A sanitized case study as an example of my process and the type of problems I solve.",
-    image: "sentinel/Populated.svg",
+    image: sentinelFigureUrl('Populated'),
     imageAlt: "Sentinel console with a dashboard assembled from widgets.",
     href: "#/work/sentinel",
   },

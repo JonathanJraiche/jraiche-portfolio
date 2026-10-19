@@ -7,10 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "sentinel:prepare": "node scripts/prepare-sentinel.mjs && python3 scripts/sentinel-figures.py",
+    "sentinel:prepare": "node scripts/prepare-sentinel.mjs && python3 scripts/sentinel-figures.py && node scripts/render-sentinel-figures.mjs",
     "test": "node scripts/test-sentinel.mjs",
     "audit:sentinel": "node scripts/audit-sentinel.mjs",
-    "audit:sentinel:states": "node scripts/audit-sentinel-states.mjs"
+    "audit:sentinel:states": "node scripts/audit-sentinel-states.mjs",
+    "audit:sentinel:icons": "node scripts/audit-sentinel-icons.mjs"
   },
   "dependencies": {
     "@fontsource/archivo": "^5.2.5",
