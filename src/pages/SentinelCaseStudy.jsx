@@ -59,7 +59,7 @@ export default function SentinelCaseStudy() {
   const tried = sections['What I tried first'].split('### Fixed layouts by sign-in role');
   const walkthrough = [...sections['How the builder works'].matchAll(/`([^`]+)\.html`: `([^`]+)`/g)];
   return <SentinelSavedProvider><article className="sentinel-case-study" aria-labelledby="sentinel-title">
-    <div className="case-intro"><a className="case-back mono" href="#hero">← Back to portfolio</a><p className="micro">Case study · Sentinel</p><h1 id="sentinel-title">{value('Title')}</h1><p className="case-summary">{value('One-line summary')}</p><p className="case-meta"><Inline text={value('Meta row')} /></p></div>
+    <div className="case-intro"><a className="case-back mono" href="#hero">← Back to portfolio</a><p className="micro">Case study · Sentinel</p><h1 id="sentinel-title">{value('Title')}</h1><p className="case-summary">{value('One-line summary')}</p><p className="case-meta"><Inline text={value('Meta row')} /></p><p className="case-overview"><Inline text={value('Project summary')} /></p></div>
     <div className="case-wide"><Figure screen="Populated" eager /></div>
     <div className="case-body">
       <Section name="The problem"><Copy text={sections['The problem']} personas /></Section>

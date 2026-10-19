@@ -12,13 +12,17 @@ Page structure and draft copy. Write the copy as given; keep every `[BRACKETED]`
 
 **Meta row:** Role: Lead Designer and Researcher · Timeline: 6 months (3 research, 3 design iteration) · Team: Sole designer with 20+ developers · Tools: Figma
 
+**Project summary:** I designed a configurable console to shorten the time from decision to execution. After the design-system handoff, the team implemented **10 to 12 widgets per month**, up from **1 to 3**.
+
 **Hero figure:** `Populated.html` (Configuration in use).
 
 ---
 
 ## The problem
 
-I was charged with performing a 3-month research study to identify user needs for a console application that would combine existing tool capabilities across various domains. I found that the console would have to serve a much wider range of roles than the team initially expected. Their needs grouped into three personas that rarely overlapped:
+The project supported a high-stakes environment where decisions often had to be made quickly, with little room for error. Operators had to switch between applications to carry out those decisions. The goal was to shorten the time from decision to execution, our primary KPI, by bringing those tools into one console.
+
+I led a three-month research study to understand what users needed from the combined console. I found that it would have to serve a much wider range of roles than the team initially expected. Their needs grouped into three personas that rarely overlapped:
 
 * **Operators** do the hands-on work in the system and need their working tools in front of them at once.
 * **Supervisors** need to see what operators are doing, along with high-level health and status.
@@ -36,12 +40,18 @@ I was the only designer on a team of more than 20 developers and 2 project manag
 
 I had full ownership of how the research was run. The constraint was access: time with end users and stakeholders was limited, so every session had to earn its slot. I mixed methods to get the most out of it:
 
-* **One-on-one interviews** to understand each persona's work in depth.
+* **One-on-one interviews** with roughly 15 participants, with two rounds per person, to understand their work in depth.
 * **Group studies** to see where needs overlapped and where they conflicted.
 * **Surveys** to reach more users than live sessions allowed.
-* **A/B tests** comparing three approaches: tabbed views, building a dashboard by adding widgets, and loading a saved layout. The final design combines the last two.
+* **A/B tests** comparing the console builder with tabbed views and fixed layouts assigned at sign-in.
 
-The interviews drove the decision. They showed a much wider breadth of user roles than the team had planned for, wide enough that the solution the developers were already proposing would not hold up. At the end of the study I proposed the widget-based approach to stakeholders. It was approved, and design iteration began.
+### What I learned
+
+Some users needed to see related information together as they worked. The capabilities we were combining did not come as separate tools. I broke them into widgets so users could put the pieces they needed next to each other.
+
+Many users needed capabilities that were missing from their assigned views, while other capabilities in those views were irrelevant to their work. That feedback supported letting people choose which widgets appeared together.
+
+The interviews and group studies let me map each type of user to the tools they needed. That gave me confidence in recommending a configurable console to stakeholders. The proposal was approved, and design iteration began.
 
 ---
 
@@ -49,13 +59,13 @@ The interviews drove the decision. They showed a much wider breadth of user role
 
 ### Tabbed views
 
-Each tool got its own tab. It kept every view uncluttered, but only one view was visible at a time. Operators and supervisors both needed related widgets side by side to do their jobs, and tabs split that context apart.
+Each capability got its own tab. It kept every view uncluttered, but only one view was visible at a time. Operators and supervisors both needed related widgets side by side to do their jobs, and tabs split that context apart.
 
 **Figure:** `Explored-Tabs.html`, caption: `Tabbed views: clean, but one view at a time.`
 
 ### Fixed layouts by sign-in role
 
-The console would load a layout for whoever signed in: operator, supervisor, or maintainer. It addressed the persona problem on paper, but it required role-aware sign-in and layout routing the platform did not have, and the result was still a fixed layout per role. Any engineering investment had to pay for itself, and that work bought less than the alternative: moving the console to a micro frontend architecture.
+The console would load a fixed layout for whoever signed in: operator, supervisor, or maintainer. These views did not match the combinations of capabilities many users needed. The approach also required role-aware sign-in and layout routing that the platform did not have.
 
 **Figure:** `Explored-RoleLogin.html`, caption: `An early concept with fixed layouts for operators, supervisors, and maintainers.`
 
@@ -63,17 +73,29 @@ The console would load a layout for whoever signed in: operator, supervisor, or 
 
 ## The decision
 
-Let people build the console themselves. Every capability became a widget with a single purpose, and anyone can assemble the widgets they need on a 12-column grid. A layout library gives each persona a sensible starting point, so nobody begins from a blank canvas.
+I broke the combined capabilities into widgets, each with a single purpose. Users could arrange the widgets they needed on a 12-column grid or start from a pre-built layout and customize it.
 
 ### Why micro frontends made this work
+
+After I presented the research findings and recommended a "build your own console" approach, the lead developer suggested micro frontends as a way to support it. We agreed to move forward with that architecture.
 
 In a micro frontend architecture, the interface is split into independently built and deployed pieces that a host application, the shell, composes at runtime. That mapped directly onto the design:
 
 * **The shell owns the frame.** Layout, the grid, saved configurations, and the global controls (STOP and system status) live in the shell. They behave the same no matter which widgets are on screen.
-* **Widgets are the deployable units.** Most widgets were their own micro frontend. A few that shared the same data and always shipped together lived in one micro frontend that exposed several widgets. The boundary followed what belonged together, not one-widget-per-repo for its own sake.
+* **Widgets are the deployable units.** Most widgets were their own micro frontend. A few that shared the same data and always shipped together lived in one micro frontend that exposed several widgets.
 * **New capability without a console release.** A new widget could ship on its own release cadence and appear in the picker without touching the shell.
-* **Failure stays contained.** Because each widget loads independently, one failing widget should not take the console down with it. That made per-widget loading, empty, and error states part of the design, not an afterthought.
+* **Failure stays contained.** Each widget loads independently, so a failing widget should not take the console down with it. I designed loading, empty, and error states for individual widgets.
 * **One design system across all of it.** Independently built pieces only feel like one product if they share tokens and components. The Sentinel system is what kept every widget consistent.
+
+### What we built first
+
+We prioritized the most frequently used widgets that needed context from one another. Less frequently used widgets stayed outside the initial scope because they would be easier to add once we understood the complex flows that depended on context across tools.
+
+### Working with developers
+
+I presented clickable Figma mockups to developers so they could walk through the console building flow.
+
+The team was concerned that users could build consoles that were too complicated or too simple. I added pre-built layouts as a starting point, while keeping the option to customize. That brought the team into alignment.
 
 ### Key interaction decisions
 
@@ -110,13 +132,17 @@ A short walkthrough with one figure per step. Captions only, no extra body copy.
 
 ## The exception: maintainers
 
-Widgets worked for watching and acting. They did not work for diagnosis. Maintainers needed to move from a subsystem to its components to its fault history quickly, and a grid of independent widgets made that path longer, not shorter. So maintainers got their own page built around drilling down.
+Maintainers told us they would always need the same screen and a layout built around drilling into detail. I gave them a dedicated page with a fixed layout organized around that workflow.
 
 **Embed:** the prototype, scenario "Maintainer diagnostics". Fallback figure: `Maintainer.html`.
 
 ---
 
 ## The design system
+
+I created the design system and handed it over to the developers so they could continue adding widgets and capabilities after my involvement ended.
+
+The system covered content inside widgets, including headings and settings layouts, as well as shared rules for adding widgets to the console.
 
 Sentinel runs on a small system built for operator density: neutral ink surfaces, color reserved for status, monospaced numbers so columns hold still while values refresh, and every status paired with a word, never color alone.
 
@@ -126,6 +152,8 @@ Sentinel runs on a small system built for operator density: neutral ink surfaces
 
 ## Outcome
 
-Stakeholders approved the move to a micro frontend architecture where users build the dashboard they need, and end users responded well to it. It is in development now.
+Stakeholders approved the configurable console approach. After I handed the design system over to developers, the team implemented 10 to 12 widgets per month, up from 1 to 3 per month previously.
 
-The bigger change was the direction. The team was heading toward a solution that fit the roles it assumed it had. Research showed the real range of roles, and the product changed course before that mismatch was built.
+Feedback from users after testing clickable prototypes indicated that the proposed console would shorten the time from decision to execution, our primary KPI.
+
+Looking back, I would have pitched the "build your own console" concept to stakeholders and end users earlier. For other products serving several types of users, I would use the same combination of one-on-one interviews and group studies to map the tools each group needed.

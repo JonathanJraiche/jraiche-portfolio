@@ -7,6 +7,7 @@
 .case-intro h1 { max-width: 24ch; }
 .case-summary { font-size: var(--size-lede); line-height: 1.55; color: var(--color-ink-soft); max-width: 60ch; margin-top: var(--s-l); }
 .case-meta { font-family: var(--font-mono); font-size: .75rem; line-height: 1.8; color: var(--color-muted); max-width: 80ch; margin-top: var(--s-l); }
+.case-overview { max-width: 68ch; margin-top: var(--s-l); line-height: 1.6; }
 .case-wide { max-width: 96rem; padding-inline: var(--gutter); margin-inline: auto; }
 .case-screen { border-radius: var(--radius-lg); overflow: hidden; }
 .case-screen img { display: block; width: 100%; height: auto; }

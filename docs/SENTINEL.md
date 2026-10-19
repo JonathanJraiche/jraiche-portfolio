@@ -61,7 +61,7 @@ Generated figures live in `src/assets/sentinel` and are imported through `figure
 4. **PASS:** The same browser flow completed with keyboard activation, arrow movement, Shift and arrow resizing, inline rename, Delete, Undo, and Save. Picker focus previews footprints. Dialog focus stays inside; Escape closes the picker or dialog. Moves and resizes announce through a polite live region. Widget DOM order follows row and column order.
 5. **PASS:** Shared placement validation rejects collisions, negative positions, fractional cells, out-of-bounds columns, and dimensions below the catalog minimum. Pointer dragging and resizing were exercised in the browser. A mixed session of 200 widget placements passes without overlap.
 6. **PASS:** Lighthouse desktop and mobile accessibility scores: **100**. Axe reports **zero violations** on the complete page at 1440px, 1024px, and 390px, and in 16 rendered console states, including dialogs, menus, inline rename, Undo, and unknown diagnostics. Reports are saved in this directory. Automated audits do not replace assistive-technology user testing.
-7. **PASS:** No em dashes in rendered UI strings. Both source and rendered-page checks pass. Supplied prose is preserved, including its placeholders.
+7. **PASS:** No em dashes in rendered UI strings. Both source and rendered-page checks pass. Prose follows the portfolio owner's revisions, and widget content placeholders remain visible.
 
 ## Additional verification
 
