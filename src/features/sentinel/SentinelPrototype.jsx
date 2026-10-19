@@ -111,7 +111,6 @@ export function SentinelConsole({ scenario, resetKey, initialConsoleState, onSce
     {state.toast && edit && <div className="sn-toast"><span className="body-m">{state.toast.text}</span><Button autoFocus variant="ghost" onClick={() => dispatch({ type: 'UNDO' })}>Undo</Button></div>}
     {state.dialog === 'save' && <SaveDialog state={state} dispatch={dispatch} onSave={save} />}
     {(state.dialog === 'discard' || state.dialog === 'exit') && <Dialog title="Discard changes?" onClose={dismissDiscard} footer={<><Button onClick={dismissDiscard}>Keep editing</Button><Button variant="danger" onClick={() => dispatch({ type: state.dialog === 'exit' ? 'LIBRARY' : 'DISCARD' })}>Discard</Button></>}></Dialog>}
-    {state.dialog?.settingsFor && <Dialog title={`${state.dialog.settingsFor} settings`} onClose={() => dispatch({ type: 'DIALOG', dialog: null })} footer={<Button onClick={() => dispatch({ type: 'DIALOG', dialog: null })}>Close</Button>}><p className="body-m">Settings arrive with widget content.</p></Dialog>}
     <span role="status" aria-live="polite" aria-atomic="true" className="visually-hidden">{state.announcement}</span>
   </div>;
 }

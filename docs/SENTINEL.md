@@ -66,12 +66,12 @@ Generated figures live in `src/assets/sentinel` and are imported through `figure
 ## Additional verification
 
 - Production build passes.
-- Eleven model tests pass, including closing unchanged and edited consoles while preserving saved configurations.
+- Thirteen model tests pass, including closing widgets from view mode, undo, saving changes, and preserving library presets and saved configurations.
 - All 13 static figure headers and 16 live-state headers were reviewed in Chromium, WebKit, and native Firefox after fixing icon viewports and WebKit figure scaling. Chromium and WebKit also pass automated live-icon bounds checks. Native Firefox screenshots were reviewed because the bundled Firefox driver could not create its profile on this macOS version.
 - No horizontal page overflow at 1440px, 1024px, or 390px.
 - Below 1024px, both live consoles are unmounted. The builder shows four fallback figures, and diagnostics shows its fallback figure.
 - Reduced motion produces zero transition durations inside the console.
-- Pointer drag and resize, search and no-results, view-mode settings, cancel without changes, Keep editing, Discard, unknown subsystem details, and the two-second self-test were checked in the browser.
+- Pointer drag and resize, search and no-results, closing a widget from view mode, Undo, cancel without changes, Keep editing, Discard, unknown subsystem details, and the two-second self-test were checked in the browser.
 
 ## Changes and limits
 
@@ -79,7 +79,8 @@ Generated figures live in `src/assets/sentinel` and are imported through `figure
 - The two explored approaches are figures, not interactive prototype states.
 - Static figures use PNG snapshots at 2x resolution for consistent scaling across browsers. The editable SVG source and embedded fonts are retained for regeneration.
 - A small sticky top bar keeps global controls visible while taller console content scrolls vertically. The console frame retains the desktop 16:10 ratio.
-- Widget bodies and widget settings retain the handoff placeholders. STOP shows the specified inactive tooltip. The playground replaces console settings with a Close console X, returning to the library with confirmation for unsaved edits. Keyboard activation, Escape, focus restoration, saved-view closing, and exiting the maintainer scenario were checked in the browser.
+- Widget bodies retain the handoff placeholders. Each widget has a Close widget X in both view and edit modes, with Undo. Closing from view mode creates a draft; Save persists the change. Widget settings is removed from the playground. Rename, Duplicate, and Remove remain available in the edit-mode options menu.
+- STOP shows the specified inactive tooltip. The playground replaces console settings with a Close console X, returning to the library with confirmation for unsaved edits. Keyboard activation, Escape, focus restoration, saved-view closing, and exiting the maintainer scenario were checked in the browser.
 - Move and resize are transient pointer states. The state-audit fixtures check their committed geometry; manual pointer checks cover the live interactions. No automated pixel-diff baseline was generated from the original reference HTML.
 - Backend micro frontends are described by the case-study copy; this is a local clickable prototype with localStorage, as specified.
 - The requested visible widget placeholders are intentional prototype content. The release review below covers the local implementation before publication.
@@ -90,7 +91,7 @@ Generated figures live in `src/assets/sentinel` and are imported through `figure
 | Dimension | Risk | Review result |
 | --- | --- | --- |
 | Security | Low | No release blockers found. React renders copy and user-entered names as text; saved data is validated before loading. The production dependency audit reports zero vulnerabilities. No credentials were found in application code. |
-| Correctness | Low | All eleven model tests pass. The production build passes with the same relative base used by GitHub Pages. Existing browser checks cover the builder, persistence, navigation, desktop, mobile, and reduced motion. |
+| Correctness | Low | All thirteen model tests pass. The production build passes with the same relative base used by GitHub Pages. Existing browser checks cover the builder, persistence, navigation, desktop, mobile, and reduced motion. |
 | Performance | Low | The case study is loaded on demand. Fonts and figures are self-hosted. Work-card timers have cleanup, and motion respects reduced-motion settings. |
 | Maintainability | Low | Content, state transitions, UI components, tokens, and asset preparation remain separate. The existing React/Vite framework and deployment workflow are retained. |
 

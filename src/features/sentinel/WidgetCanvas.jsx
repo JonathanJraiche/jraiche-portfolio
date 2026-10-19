@@ -6,7 +6,7 @@ import { firstOpen, fits, newId, ordered, titleOf, widgetByType } from './model.
 const ResizeHandle = forwardRef(function ResizeHandle({ handleAxis, ...props }, ref) {
   return <button ref={ref} type="button" tabIndex={-1} className={`react-resizable-handle react-resizable-handle-${handleAxis} sn-resize-handle`} aria-label="Resize widget using Shift and arrow keys on its title" {...props} />;
 });
-function WidgetMenu({ widget, edit, canDuplicate, dispatch, close }) {
+function WidgetMenu({ widget, canDuplicate, dispatch, close }) {
   const ref = useRef(null);
   useEffect(() => { ref.current?.querySelector('button:not(:disabled)')?.focus(); }, []);
   const onKey = event => {
@@ -19,10 +19,9 @@ function WidgetMenu({ widget, edit, canDuplicate, dispatch, close }) {
     items[next]?.focus();
   };
   return <div ref={ref} className="sn-widget-menu" role="menu" aria-label={`${titleOf(widget)} options`} onClick={event => event.stopPropagation()} onKeyDown={onKey}>
-    {edit && <><button type="button" role="menuitem" onClick={() => dispatch({ type: 'START_RENAME', id: widget.i })}><Icon name="rename" />Rename</button>
-      <button type="button" role="menuitem" disabled={!canDuplicate} onClick={() => dispatch({ type: 'DUPLICATE', id: widget.i, newId: newId() })}><Icon name="duplicate" />Duplicate</button></>}
-    <button type="button" role="menuitem" onClick={() => dispatch({ type: 'DIALOG', dialog: { settingsFor: titleOf(widget) } })}><Icon name="settings" />Widget settings</button>
-    {edit && <><hr /><button type="button" role="menuitem" className="sn-remove" onClick={() => dispatch({ type: 'REMOVE', id: widget.i })}><Icon name="remove" />Remove widget</button></>}
+    <button type="button" role="menuitem" onClick={() => dispatch({ type: 'START_RENAME', id: widget.i })}><Icon name="rename" />Rename</button>
+    <button type="button" role="menuitem" disabled={!canDuplicate} onClick={() => dispatch({ type: 'DUPLICATE', id: widget.i, newId: newId() })}><Icon name="duplicate" />Duplicate</button>
+    <hr /><button type="button" role="menuitem" className="sn-remove" onClick={() => dispatch({ type: 'REMOVE', id: widget.i })}><Icon name="remove" />Remove widget</button>
   </div>;
 }
 function Widget({ widget, state, dispatch, focusWidget, helpId }) {
@@ -61,10 +60,11 @@ function Widget({ widget, state, dispatch, focusWidget, helpId }) {
         {selected && <Icon name="grip" />}<span className={`sn-status-dot sn-status--${widget.status}`} aria-hidden="true" /><span className="label-s">{titleOf(widget)}</span><span className="visually-hidden">, {widget.status}</span>
       </button> : <span className="sn-widget-view-title"><span className={`sn-status-dot sn-status--${widget.status}`} aria-hidden="true" /><span className="label-s">{titleOf(widget)}</span><span className="visually-hidden">, {widget.status}</span></span>}
       {widget.count !== undefined && <span className="data-s sn-tertiary">{widget.count}</span>}
-      <IconButton ref={optionsRef} icon="more" label={`${titleOf(widget)} options`} aria-haspopup="menu" aria-expanded={state.menuFor === widget.i} onClick={event => { event.stopPropagation(); dispatch({ type: 'MENU', id: state.menuFor === widget.i ? null : widget.i }); }} />
+      {edit && <IconButton ref={optionsRef} icon="more" label={`${titleOf(widget)} options`} aria-haspopup="menu" aria-expanded={state.menuFor === widget.i} onClick={event => { event.stopPropagation(); dispatch({ type: 'MENU', id: state.menuFor === widget.i ? null : widget.i }); }} />}
+      <IconButton icon="close" label={`Close ${titleOf(widget)} widget`} onClick={event => { event.stopPropagation(); dispatch({ type: 'REMOVE', id: widget.i }); }} />
     </div>
     <div className="sn-widget-body"><span className="body-s sn-tertiary">[{widgetByType[widget.type].name.toUpperCase()} CONTENT]</span></div>
-    {state.menuFor === widget.i && <div ref={menuWrap}><WidgetMenu widget={widget} edit={edit} canDuplicate={!!firstOpen(state.draft?.widgets || [], { w: widget.w, h: widget.h })} dispatch={dispatch} close={() => { dispatch({ type: 'MENU', id: null }); optionsRef.current?.focus(); }} /></div>}
+    {edit && state.menuFor === widget.i && <div ref={menuWrap}><WidgetMenu widget={widget} canDuplicate={!!firstOpen(state.draft?.widgets || [], { w: widget.w, h: widget.h })} dispatch={dispatch} close={() => { dispatch({ type: 'MENU', id: null }); optionsRef.current?.focus(); }} /></div>}
   </div>;
 }
 export default function WidgetCanvas({ state, dispatch, gridSettings, helpId }) {

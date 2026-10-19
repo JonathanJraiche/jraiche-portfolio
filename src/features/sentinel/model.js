@@ -103,15 +103,18 @@ export function reducer(state, action) {
       return updateDraft(state, [...widgets, { ...widget, i: action.newId, ...position }], { selectedId: action.newId, menuFor: null });
     }
     case 'REMOVE': {
-      const widget = widgets.find(item => item.i === action.id);
+      const draft = state.draft || (state.config && clone(state.config));
+      const widget = draft?.widgets.find(item => item.i === action.id);
       if (!widget) return state;
-      return updateDraft(state, widgets.filter(item => item.i !== action.id), { menuFor: null, selectedId: null, toast: { text: `${titleOf(widget)} removed`, undo: widget }, announcement: `${titleOf(widget)} removed. Undo available.` });
+      return updateDraft({ ...state, mode: 'edit', draft, picker: emptyPicker() }, draft.widgets.filter(item => item.i !== action.id), { menuFor: null, renamingId: null, selectedId: null, toast: { text: `${titleOf(widget)} removed`, undo: widget, index: draft.widgets.indexOf(widget) }, announcement: `${titleOf(widget)} removed. Undo available.` });
     }
     case 'UNDO': {
       if (!state.toast || !state.draft) return state;
       let widget = state.toast.undo;
       if (!fits(widget, widgets)) widget = { ...widget, ...firstOpen(widgets, { w: widget.w, h: widget.h }) };
-      return updateDraft(state, [...widgets, widget], { toast: null, selectedId: widget.i, announcement: `${titleOf(widget)} restored` });
+      const restored = [...widgets];
+      restored.splice(state.toast.index ?? restored.length, 0, widget);
+      return updateDraft(state, restored, { toast: null, selectedId: widget.i, announcement: `${titleOf(widget)} restored` });
     }
     case 'CLEAR_TOAST': return { ...state, toast: null };
     case 'DIALOG': return { ...state, menuFor: null, picker: emptyPicker(), dialog: action.dialog };

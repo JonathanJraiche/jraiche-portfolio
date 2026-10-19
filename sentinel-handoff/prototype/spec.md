@@ -79,10 +79,10 @@ Matches `Main.html` and every other screen.
 
 ### 8. Widget options (`Menu.html`)
 
-* Each widget header ends with a 28px icon button (`aria-label="{Name} options"`) that opens a 220px menu, `surface-overlay`, 1px `border-strong`, radius 8px:
+* Each widget header has a 28px X button (`aria-label="Close {Name} widget"`) in both view and edit modes. It removes that widget immediately and offers **Undo** for 8 seconds. The remaining widgets stay in place. Undo restores the widget's position and order when the space is still available.
+* In edit mode, an additional options button (`aria-label="{Name} options"`) opens a 220px menu, `surface-overlay`, 1px `border-strong`, radius 8px:
   * **Rename**: replaces the header title with an inline text input, Enter or blur to commit, Escape to cancel. Max 32 characters.
   * **Duplicate**: adds a copy at the first open position for its current size. If none fits, the item is disabled.
-  * **Widget settings**: opens a small dialog titled `{Name} settings` with the text `Settings arrive with widget content.` and a Close button. Placeholder for the second pass.
   * A divider, then **Remove widget** in `status-critical`. Removes immediately and shows a toast at the bottom of the canvas: `{Name} removed` with an **Undo** button, for 8 seconds.
 * Menu items are `role="menuitem"`, arrow keys move between them, Escape closes and returns focus to the options button.
 
@@ -100,7 +100,8 @@ Matches `Main.html` and every other screen.
 
 ### 10. Configuration in use (`Populated.html`)
 
-* View mode: no edit bar, no dot grid, no selection, no drag or resize. Widgets render as Panels with a status dot, uppercase title, optional mono count, and the options button (menu in view mode shows only **Widget settings**).
+* View mode: no edit bar, no dot grid, no selection, no drag or resize. Widgets render as Panels with a status dot, uppercase title, optional mono count, and an X button to close the widget. The live playground has no Widget settings menu or dialog.
+* Closing a widget from view mode enters edit mode with an undoable draft. Saved configurations and library presets remain unchanged until Save. Saving a library preset creates a copy; saving an existing saved configuration overwrites that configuration.
 * **Add widget** enters edit mode on this configuration with the picker open.
 
 ### 11. Maintainer diagnostics (`Maintainer.html`)
@@ -151,7 +152,7 @@ type ConsoleState = {
   selectedId: string | null;
   menuFor: string | null;
   renamingId: string | null;
-  dialog: null | 'save' | 'discard' | 'exit' | { settingsFor: string };
+  dialog: null | 'save' | 'discard' | 'exit';
   toast: null | { text: string; undo: Widget };
   saved: Config[];               // persisted to localStorage 'sentinel.savedConfigs'
   maintainer: { selectedId: string; refreshedAt: string };

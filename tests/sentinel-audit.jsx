@@ -11,7 +11,7 @@ const kind = new URLSearchParams(location.search).get('state') || 'library';
 const saved = readSaved({getItem:()=>null});
 let state = initialState(saved);
 const dispatch = action => { state = reducer(state, action); };
-if (!['library','view','maintainer','unknown'].includes(kind)) {
+if (!['library','view','close-widget','maintainer','unknown'].includes(kind)) {
   dispatch({type:'NEW',id:'audit'});
   if(kind === 'hover-plot') dispatch({type:'PREVIEW',widgetType:'situation-plot'});
   if(kind === 'hover-log') { dispatch({type:'FILTER',patch:{category:'Logs'}}); dispatch({type:'PREVIEW',widgetType:'event-log'}); }
@@ -23,11 +23,13 @@ if (!['library','view','maintainer','unknown'].includes(kind)) {
     if(kind === 'save') dispatch({type:'DIALOG',dialog:'save'});
     if(kind === 'discard') dispatch({type:'CANCEL'});
     if(kind === 'exit') dispatch({type:'EXIT'});
-    if(kind === 'settings') dispatch({type:'DIALOG',dialog:{settingsFor:'Situation Plot'}});
     if(kind === 'rename') dispatch({type:'START_RENAME',id:'plot'});
     if(kind === 'undo') dispatch({type:'REMOVE',id:'plot'});
   }
 }
-if(kind === 'view') dispatch({type:'LOAD',config:{...layouts.saved[0],source:'saved'}});
+if(['view','close-widget'].includes(kind)) {
+  dispatch({type:'LOAD',config:{...layouts.saved[0],source:'saved'}});
+  if(kind === 'close-widget') dispatch({type:'REMOVE',id:state.config.widgets[0].i});
+}
 if(['maintainer','unknown'].includes(kind)) { dispatch({type:'SCENARIO',scenario:'maintainer'}); if(kind === 'unknown')dispatch({type:'SUBSYSTEM',id:'SUB-10'}); }
 createRoot(document.getElementById('root')).render(<SentinelSavedProvider><main><h1 className="visually-hidden">Sentinel state audit</h1><SentinelConsole scenario={state.scenario} initialConsoleState={state} /></main></SentinelSavedProvider>);

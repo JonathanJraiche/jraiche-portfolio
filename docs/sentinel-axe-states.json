@@ -70,9 +70,9 @@
     "passes": 17
   },
   {
-    "state": "settings",
+    "state": "close-widget",
     "violations": [],
-    "passes": 17
+    "passes": 19
   },
   {
     "state": "rename",

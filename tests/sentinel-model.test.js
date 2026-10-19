@@ -91,6 +91,39 @@ test('closing a changed console preserves the draft until the user confirms or k
     assert.deepEqual(closed.saved, base.saved);
   }
 });
+test('closing a widget from view mode creates an undoable draft without changing other widgets or saved layouts', () => {
+  const base = fresh();
+  for (const [config, source] of [[layouts.library[0], 'library'], [layouts.saved[0], 'saved']]) {
+    const loaded = act(base, 'LOAD', { config: { description: '', ...config, source } });
+    const original = structuredClone(loaded.config);
+    const target = original.widgets[0];
+    const removed = act(loaded, 'REMOVE', { id: target.i });
+    assert.equal(removed.mode, 'edit');
+    assert.equal(removed.draft.widgets.length, original.widgets.length - 1);
+    assert.equal(removed.draft.widgets.some(widget => widget.i === target.i), false);
+    assert.deepEqual(removed.draft.widgets, original.widgets.slice(1));
+    assert.deepEqual(removed.config, original);
+    assert.deepEqual(removed.saved, base.saved);
+    assert.equal(act(removed, 'EXIT').dialog, 'exit');
+    const restored = act(removed, 'UNDO');
+    assert.deepEqual(restored.draft.widgets, original.widgets);
+    assert.equal(act(restored, 'EXIT').screen, 'library');
+    assert.deepEqual(act(removed, 'DISCARD').config, original);
+  }
+});
+test('saving a closed widget overwrites a saved layout and makes a copy of a library preset', () => {
+  const base = fresh();
+  for (const [config, source] of [[layouts.library[0], 'library'], [layouts.saved[0], 'saved']]) {
+    const original = structuredClone(config);
+    const loaded = act(base, 'LOAD', { config: { description: '', ...config, source } });
+    const removed = act(loaded, 'REMOVE', { id: config.widgets[0].i });
+    const saved = act(removed, 'SAVE', { id: 'widget-close-copy', name: 'Updated layout', description: '', time: '17:00Z' });
+    const id = source === 'saved' ? config.id : 'widget-close-copy';
+    assert.equal(saved.saved.find(item => item.id === id).widgets.length, config.widgets.length - 1);
+    assert.equal(saved.saved.length, base.saved.length + (source === 'library' ? 1 : 0));
+    assert.deepEqual(config, original);
+  }
+});
 test('self-test completion is attached to the tested subsystem when selection changes', () => {
   let state = act(fresh(),'TEST_START',{id:'SUB-07'});
   state = act(state,'SUBSYSTEM',{id:'SUB-10'});

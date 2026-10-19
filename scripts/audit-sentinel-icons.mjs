@@ -7,7 +7,7 @@ import { promisify } from 'node:util';
 
 const base = process.env.SENTINEL_AUDIT_ORIGIN || 'http://127.0.0.1:5173';
 const screenshots = '/tmp/sentinel-icon-audit';
-const states = ['library', 'picker', 'hover-plot', 'hover-log', 'placed', 'move', 'resize', 'menu', 'save', 'view', 'maintainer', 'unknown', 'discard', 'settings', 'rename', 'undo'];
+const states = ['library', 'picker', 'hover-plot', 'hover-log', 'placed', 'move', 'resize', 'menu', 'save', 'view', 'maintainer', 'unknown', 'discard', 'close-widget', 'rename', 'undo'];
 const reports = [];
 await mkdir(screenshots, { recursive: true });
 
