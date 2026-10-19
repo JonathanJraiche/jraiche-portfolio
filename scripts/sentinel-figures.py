@@ -24,7 +24,10 @@ def nodes(node):
 def serialize(node):
     if isinstance(node,str): return escape(node,quote=False)
     attrs=dict(node.attrs)
-    if node.tag=='svg': attrs['xmlns']='http://www.w3.org/2000/svg'
+    if node.tag=='svg':
+        # HTMLParser lowercases attributes; SVG in XML requires viewBox's original case.
+        if 'viewbox' in attrs: attrs['viewBox']=attrs.pop('viewbox')
+        attrs['xmlns']='http://www.w3.org/2000/svg'
     attrs=''.join(' '+key+'="'+escape(value or '',quote=True)+'"' for key,value in attrs.items())
     if node.tag in VOID:return '<'+node.tag+attrs+' />'
     return '<'+node.tag+attrs+'>'+''.join(serialize(child) for child in node.children)+'</'+node.tag+'>'
