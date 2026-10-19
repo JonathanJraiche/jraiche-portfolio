@@ -22,7 +22,7 @@ function Copy({ text, personas = false }) {
 const alt = {
   Main: 'Configuration library with three persona presets, a blank configuration, and two saved configurations.',
   'Explored-Tabs': 'Explored approach: five separate tabs, with only the Situation view visible.',
-  'Explored-RoleLogin': 'Explored approach: role-aware sign-in loads fixed layouts for operators, supervisors, and maintainers.',
+  'Explored-RoleLogin': 'Explored approach: fixed layouts for operators, supervisors, and maintainers.',
   Picker: 'Searchable widget picker grouped into Plots, Health, Scheduler, and Logs.',
   'Hover-Plot': 'Situation Plot shows a six-column by six-row placement preview on an empty grid.',
   'Hover-Log': 'Event Log shows its three-column by ten-row placement preview.',
