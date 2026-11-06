@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "sentinel:prepare": "node scripts/prepare-sentinel.mjs && python3 scripts/sentinel-figures.py && node scripts/render-sentinel-figures.mjs",
     "test": "node scripts/test-sentinel.mjs",
+    "test:sentinel:size": "node scripts/test-sentinel-size.mjs",
     "audit:sentinel": "node scripts/audit-sentinel.mjs",
     "audit:sentinel:states": "node scripts/audit-sentinel-states.mjs",
     "audit:sentinel:icons": "node scripts/audit-sentinel-icons.mjs"

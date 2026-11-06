@@ -1,4 +1,5 @@
 import layouts from '../../../sentinel-handoff/prototype/data/layouts.json';
+import legacySaved from '../../../sentinel-handoff/prototype/data/legacy-saved-layouts.json';
 import catalog from '../../../sentinel-handoff/prototype/data/widgets.json';
 import diagnostics from '../../../sentinel-handoff/prototype/data/maintainer.json';
 
@@ -39,7 +40,12 @@ function validConfig(config) {
 export function readSaved(storage) {
   try {
     const parsed = JSON.parse((storage || globalThis.localStorage).getItem(storageKey));
-    if (Array.isArray(parsed) && parsed.every(validConfig)) return parsed.map(config => ({ ...config, source: 'saved' }));
+    if (Array.isArray(parsed) && parsed.every(validConfig)) return parsed.map(config => {
+      // Refresh untouched demo seeds only. User edits and newly saved layouts stay intact.
+      const legacy = legacySaved.find(seed => JSON.stringify({ ...seed, source: 'saved' }) === JSON.stringify({ ...config, source: 'saved' }));
+      const current = legacy && layouts.saved.find(seed => seed.id === legacy.id);
+      return { ...clone(current || config), source: 'saved' };
+    });
   } catch { /* An unavailable or invalid store uses the supplied seeds. */ }
   return clone(layouts.saved).map(config => ({ ...config, source: 'saved' }));
 }

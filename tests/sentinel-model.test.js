@@ -1,10 +1,38 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import legacySaved from '../sentinel-handoff/prototype/data/legacy-saved-layouts.json';
 import { catalog, firstOpen, fits, initialState, layouts, overlaps, readSaved, reducer, storageKey } from '../src/features/sentinel/model.js';
 const fresh = () => initialState(readSaved({ getItem: () => null }));
 const act = (state, type, rest = {}) => reducer(state, { type, ...rest });
 test('supplied layouts and seeds satisfy catalog sizes, bounds, and collision rules', () => {
   for (const config of [...layouts.library, ...layouts.saved]) for (const widget of config.widgets) assert.ok(fits(widget, config.widgets), `${config.name}: ${widget.type}`);
+});
+test('every starter layout leaves space for a large widget within its initial ten rows', () => {
+  for (const config of [...layouts.library, ...layouts.saved]) {
+    const position = firstOpen(config.widgets, { w: 6, h: 6 });
+    assert.ok(position && position.y + 6 <= 10, config.name);
+    assert.ok(config.widgets.reduce((area, widget) => area + widget.w * widget.h, 0) <= 60, config.name);
+  }
+});
+test('stored original demo layouts refresh while customized and user-created layouts are preserved', () => {
+  const original = structuredClone(legacySaved);
+  const refreshed = readSaved({ getItem: () => JSON.stringify(original.map(config => ({ ...config, source: 'saved' }))) });
+  assert.deepEqual(refreshed, layouts.saved.map(config => ({ ...config, source: 'saved' })));
+  for (const change of [
+    config => { config.name = 'My custom watch'; },
+    config => { config.widgets[0].title = 'My plot'; },
+    config => { config.widgets.pop(); },
+    config => { config.editedAt = '15:30Z'; },
+    config => { config.id = 'my-new-layout'; },
+  ]) {
+    const customized = structuredClone(original[0]);
+    change(customized);
+    const stored = [customized, original[1]];
+    const loaded = readSaved({ getItem: () => JSON.stringify(stored) });
+    assert.deepEqual(loaded[0], { ...customized, source: 'saved' });
+    assert.deepEqual(loaded[1], { ...layouts.saved[1], source: 'saved' });
+    assert.deepEqual(stored[0], customized);
+  }
 });
 test('placement scans rows then columns, and grows below occupied rows', () => {
   const occupied = [{ i: 'a', x: 0, y: 0, w: 9, h: 10 }];

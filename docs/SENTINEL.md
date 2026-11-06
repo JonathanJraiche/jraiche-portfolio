@@ -16,6 +16,7 @@ Open `http://localhost:5173/#/work/sentinel`. The header's Work link and the hom
 ```sh
 npm run build
 npm test
+npm run test:sentinel:size
 npm run audit:sentinel
 npm run audit:sentinel:states
 npm run audit:sentinel:icons
@@ -51,6 +52,7 @@ Generated figures live in `src/assets/sentinel` and are imported through `figure
 - `Library.jsx`, `Picker.jsx`, `WidgetCanvas.jsx`, `Diagnostics.jsx`, and `Controls.jsx` render the console.
 - `model.js` owns placement, collision validation, minimum sizes, cloning, persistence validation, and reducer transitions.
 - Saved configurations use `sentinel.savedConfigs`. The two embeds share saved data. Scenario switches reset the active screen without deleting saved configurations. Reset restores the supplied seeds.
+- Starter layouts contain two or three widgets and leave at least half of the initial 12×10 grid empty. Untouched legacy saved seeds are refreshed automatically; customized and user-created configurations are preserved.
 - The grid uses react-grid-layout 1.5.4 with the handoff's flat-prop configuration, 12 columns, 56px rows, 12px gaps, 16px padding, no compaction, collision prevention, and bounded dragging. It reserves space below occupied rows for downward movement.
 
 ## Acceptance criteria
@@ -78,7 +80,7 @@ Generated figures live in `src/assets/sentinel` and are imported through `figure
 - Routing uses the existing React/Vite app and a hash URL for GitHub Pages. No framework migration was made.
 - The two explored approaches are figures, not interactive prototype states.
 - Static figures use PNG snapshots at 2x resolution for consistent scaling across browsers. The editable SVG source and embedded fonts are retained for regeneration.
-- A small sticky top bar keeps global controls visible while taller console content scrolls vertically. The console frame retains the desktop 16:10 ratio.
+- The console frame retains the desktop 16:10 ratio independently of its contents. The canvas fills the space beneath the controls and scrolls internally as widgets are added, keeping the frame, canvas viewport, top bar, and edit bar stable. The library and diagnostics scroll inside the same frame.
 - Widget bodies retain the handoff placeholders. Each widget has a Close widget X in both view and edit modes, with Undo. Closing from view mode creates a draft; Save persists the change. Widget settings is removed from the playground. Rename, Duplicate, and Remove remain available in the edit-mode options menu.
 - STOP shows the specified inactive tooltip. The playground replaces console settings with a Close console X, returning to the library with confirmation for unsaved edits. Keyboard activation, Escape, focus restoration, saved-view closing, and exiting the maintainer scenario were checked in the browser.
 - Move and resize are transient pointer states. The state-audit fixtures check their committed geometry; manual pointer checks cover the live interactions. No automated pixel-diff baseline was generated from the original reference HTML.
